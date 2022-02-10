@@ -29,6 +29,20 @@ namespace list
             foreach (string i in cars){         //using foreach to printout
                 Console.WriteLine(i);
             }
+
+            // Create an array of four elements, and add values later
+            string[] cars = new string[4];
+
+            // Create an array of four elements and add values right away 
+            string[] cars = new string[4] { "Volvo", "BMW", "Ford", "Mazda" };
+
+            // Create an array of four elements without specifying the size 
+            string[] cars = new string[] { "Volvo", "BMW", "Ford", "Mazda" };
+
+            // Create an array of four elements, omitting the new keyword, and without specifying the size
+            string[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
+
+            int[] luckyNumbers = { 4, 3, 5, 6, 77 }; // creating an array
         }
     }
 }
