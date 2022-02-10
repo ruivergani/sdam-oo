@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace week1_task1
+namespace week1_task3
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World Project Three.");
+            Console.WriteLine("Hello World!");
         }
     }
 }
