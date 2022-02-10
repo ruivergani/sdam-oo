@@ -18,6 +18,17 @@ namespace list
                 Console.Write(nums[i] + "  ");
             }
             Console.WriteLine();
+
+            // Create an Array
+            string[] cars;
+            string[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
+            Console.WriteLine(cars[0]); // outputs volvo
+            for (int i = 0; i < cars.Length; i++){        // print out the array (length is a function/method of the class/object cars)
+                Console.WriteLine(cars[i]);
+            }
+            foreach (string i in cars){         //using foreach to printout
+                Console.WriteLine(i);
+            }
         }
     }
 }
