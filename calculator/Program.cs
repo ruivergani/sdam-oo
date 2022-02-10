@@ -8,10 +8,31 @@ namespace calculator
             Console.Write("Enter a number: ");
             double num1 = Convert.ToDouble(Console.ReadLine());      // convert to double (float numbers)
 
+            Console.Write("Enter Operator: ");
+            string op = Console.ReadLine();
+
             Console.Write("Enter another number: ");
             double num2 = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine("Result: ", num1 + num2); // add because we converted to integer
+            if (op == "+")
+            {
+                Console.WriteLine(num1 + num2);
+            }
+            else if(op == "-"){
+                Console.WriteLine(num1 - num2);
+            }
+            else if(op == "/")
+            {
+                Console.WriteLine(num1 / num2);
+            }
+            else if(op == "*")
+            {
+                Console.WriteLine(num1 * num2);
+            }
+            else
+            {
+                Console.WriteLine("Operator not found.");
+            }
 
             Console.ReadLine();
         }
