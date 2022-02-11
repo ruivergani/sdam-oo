@@ -7,7 +7,7 @@ namespace w01_task3
         static void Main(string[] args)
         {
             Console.WriteLine("Exercise 03 - Dice Match");
-            int counter = -1;
+            int counter = 0;
             int dice1 = 1;
             int dice2 = 2;
             while (dice1 != dice2){
