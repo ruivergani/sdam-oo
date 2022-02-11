@@ -4,7 +4,7 @@ namespace OOP
 {
     class Car      // Class (object is created from a class)
     {
-        string color = "red"; // attribute    variables/fields inside class car
+        public string color = "red"; // attribute    variables/fields inside class car      // public: make available for use other variables
         static void Main(string[] args)
         {
             Car myObj = new Car();  // create an Object of Car
