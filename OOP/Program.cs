@@ -8,7 +8,9 @@ namespace OOP
         static void Main(string[] args)
         {
             Car myObj = new Car();  // create an Object of Car
-            Console.WriteLine(myObj.color);
+            Car myObject2 = new Car();
+            Console.WriteLine("New object: ", myObject2.color);
+            Console.WriteLine("Object 1: ", myObj.color);
         }
     }
 }
