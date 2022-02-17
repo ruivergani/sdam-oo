@@ -7,10 +7,15 @@ namespace ObjectConstructor
     {
         static void Main(string[] args)
         {
+            // Basically we create a construtor, but you need to initialize the variables first then after in the constructor
             Book javaBook = new Book("Java is Ace!", "Graham Mansfield");
             Book cSharpBook = new Book("C# is good!", "Jan Lawton"); // these are instances (instantiation of the same class - Book)
             Book pythonBook = new Book("What is Python?", "Phil Windridge");
             Book programmingBook = new Book("Learn Programming", "Kelvin Hilton");
+
+            FormattedOutput var1 = new FormattedOutput(); // calling the class
+            var1.PrinteMessageHeader(); // calling function from object
+            
 
             List<Book> books = 
                 new List<Book>() { javaBook, cSharpBook, pythonBook, programmingBook };
