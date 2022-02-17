@@ -8,7 +8,7 @@ namespace ObjectConstructor
         static void Main(string[] args)
         {
             Book javaBook = new Book("Java is Ace!", "Graham Mansfield");
-            Book cSharpBook = new Book("C# is good!", "Jan Lawton");
+            Book cSharpBook = new Book("C# is good!", "Jan Lawton"); // these are instances (instantiation of the same class - Book)
             Book pythonBook = new Book("What is Python?", "Phil Windridge");
             Book programmingBook = new Book("Learn Programming", "Kelvin Hilton");
 
