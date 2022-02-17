@@ -8,6 +8,12 @@ namespace Car_OOP
         string color;
         int year;
 
+        //public: only accessed by objects | static: can be accessed without creating an object of the class
+        public void accelerate() // creating object method
+        {
+            Console.WriteLine("The car is full throttle.");
+        }
+
         static void Main(string[] args)
         {
             Car Ford = new Car(); // declaring object called Ford
@@ -21,6 +27,7 @@ namespace Car_OOP
 
             Console.WriteLine(Ford.model);
             Console.WriteLine(Opel.color);
+            Ford.accelerate(); // calling the object method using the object
 
         }
     }
