@@ -4,9 +4,8 @@ using System.Text;
 
 namespace UML_exemplo
 {
-    public class Person
-    {
-       /*  private string firstName { get; }
+    public class Person{
+        /*  private string firstName { get; }
         private string lastName { get; set; }
 
         public Pet CurrentPet;
@@ -24,6 +23,10 @@ namespace UML_exemplo
         {
 
         }
+        
+    }
+    // must have same namespace for subclass/superclass
+    public class PostGraduate : Person{ // creating subclass called
 
     }
 }
