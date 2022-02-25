@@ -4,9 +4,9 @@ namespace ExceptionHandling
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args )
         {
-            bool trueval = false;
+            bool trueval;
             do
             {
                 try
@@ -24,6 +24,7 @@ namespace ExceptionHandling
                     Console.WriteLine(e.Message); //catch the error and display a message
                     trueval = true;
                 }
+                // add Finally to execute block always
             }
             while (trueval == true);
             // exception block

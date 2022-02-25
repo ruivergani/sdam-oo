@@ -82,8 +82,8 @@ Module Module1
                     Console.ForegroundColor = ConsoleColor.Gray
                 End Try
             Loop Until trueval = True
-
             trueval = False
+
 
             ' Use Select Case to choose options from main menu
             Select Case choice
