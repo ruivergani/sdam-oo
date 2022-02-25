@@ -20,7 +20,6 @@ namespace ExponentMethod
 
             int[,] myArray = new int[2, 3]; // rows and collumns (because you do not know the elements) 
 
-
         }
         // creating function
         // basically the function does not need to be before the main method
