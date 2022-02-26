@@ -8,7 +8,7 @@ namespace Company_Person_Pet
     {
         public string name { get; set; }
 
-        public List<Person> people = new List<Person>(); 
+        public List<Person> people { get;  } // list of person objects
         
         public Company(string aName, List<Person> aPeople)
         {

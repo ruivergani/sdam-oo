@@ -12,12 +12,13 @@ namespace Company_Person_Pet
 
             Person person01 = new Person("Jake Alves", cat);
             Person person02 = new Person("Rui Neto", dog);
-            Person person03 = new Person("Jordan", null);
+            Person person03 = new Person("Jordan", dog);
 
-            List<Person> peopleList = new List<Person>()
-            {
-                person02, person01
-            };
+            List<Person> peopleList = new List<Person>();
+            peopleList.Add(person01);
+            peopleList.Add(person02);
+            peopleList.Add(person03);
+            
 
             Company company01 = new Company("Google", peopleList);
 
@@ -31,26 +32,27 @@ namespace Company_Person_Pet
        
         }
         // method for printing
-        public static void PrintPetDetails(Pet a)
+        public static void PrintPetDetails(Pet a) // print pet details
         {
             Console.WriteLine("Pet name: "+ a.name);
         }
-        public static void PrintPersonDetails(Person p)
+        public static void PrintPersonDetails(Person p) // print person details
         {
             Console.WriteLine("Person name: " + p.name);
             Console.WriteLine("Person animal: " + p.personPet.name);
         }
-        public static void PrintListaPeople(List<Person> listaPessoa)
+        public static void PrintListaPeople(List<Person> listaPessoa) // Print the list of people
         {
             listaPessoa.ForEach(PrintPersonDetails);
         }
         public static void PrintCompanyDetails(Company b)
         {
             Console.WriteLine("Company Name: " + b.name);
-            // THE ISSUE IS HOW CAN I print the company details (basically the list of the company that includes Person details)
-            List<Person> listaDePessoas = b.people;
-            Console.WriteLine("Lista da compania: ");
-            Console.WriteLine(listaDePessoas.Count); // could not print but the count is working
+            foreach(var item in b.people)
+            {
+                Console.WriteLine(item.name);
+                Console.WriteLine(item.personPet.name);
+            }
         }
         
     }
