@@ -48,7 +48,7 @@ namespace Company_Person_Pet
         public static void PrintCompanyDetails(Company b)
         {
             Console.WriteLine("Company Name: " + b.name);
-            foreach(var item in b.people)
+            foreach(var item in b.people) // using the for each to go through the list (from another class)
             {
                 Console.WriteLine(item.name);
                 Console.WriteLine(item.personPet.name);
