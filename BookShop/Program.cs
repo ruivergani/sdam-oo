@@ -12,7 +12,7 @@ namespace BookShop
             Book javaBook = new Book("Java is Ace!", "Graham Mansfield", 30.50);
             Book cSharpBook = new Book("C# is good!", "Jan Lawton", 10);
             Book pythonBook = new Book("What is Python?", null, 20.30);
-            Book programmingBook = new Book("", "Kelvin Hilton", 30.99);
+            Book programmingBook = new Book("Hacker Book", "Kelvin Hilton", 30.99);
 
             BookShop library01 = new BookShop("Wilson Library"); // BookShop Object
 
@@ -21,10 +21,19 @@ namespace BookShop
             library01.addBook(pythonBook);
             library01.addBook(programmingBook);
             Console.WriteLine("Items on for-sale list: " + library01.AvailableSales.Count);
-
-
+            PrintBookAvailableSales(library01); // Print books on the list
 
         }
+        public static void PrintBookAvailableSales(BookShop i)
+        {
+            foreach(var item in i.AvailableSales)
+            {
+                Console.WriteLine("Book: " + item.title);
+            }
+        }
+        
 
-    }
+   }
+
+    
 }

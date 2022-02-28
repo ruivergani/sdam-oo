@@ -12,8 +12,8 @@ namespace BookShop
 
         public Book(string theTitle, string theAuthor, double aPricetag)
         {
-            author = theAuthor;
             title = theTitle;
+            author = theAuthor;
             priceTag = aPricetag;
         }
 
