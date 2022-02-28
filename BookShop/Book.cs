@@ -7,14 +7,14 @@ namespace BookShop
     class Book
     {
         public string author { get; set; }
-        public string borrowerName { get; set; }
         public string title { get; set; }
+        public double priceTag { set; get; }
 
-        public Book(string theTitle, string theAuthor)
+        public Book(string theTitle, string theAuthor, double aPricetag)
         {
             author = theAuthor;
-            borrowerName = "";
             title = theTitle;
+            priceTag = aPricetag;
         }
 
         public string GetAuthor()
@@ -22,19 +22,10 @@ namespace BookShop
             return author;
         }
 
-        public string GetBorrowerName()
-        {
-            return borrowerName;
-        }
-
         public string GetTitle()
         {
             return title;
         }
 
-        public void SetBorrowerName(string theBorrowerName)
-        {
-            borrowerName = theBorrowerName;
-        }
     }
 }
