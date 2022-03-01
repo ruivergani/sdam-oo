@@ -29,15 +29,17 @@ namespace BookShop
             SoldSales.Add(a);
             Console.WriteLine("Items on for-sale list: " + AvailableSales.Count);
             Console.WriteLine("Items on sold-sale list: " + SoldSales.Count);
+            
         }
-        public void reportSales(Book c) //add price tags of all books in sold lists
+        public void reportSales(BookShop c) //add price tags of all books in sold lists
         {
             double sum = 0;
-            foreach(var item in SoldSales)
+            foreach (var item in c.SoldSales)
             {
-                Console.WriteLine("List regarding price tag: " + c.priceTag);
-                sum += c.priceTag;
+                sum += item.priceTag;
+                Console.WriteLine("Book price: " + item.priceTag);
             }
+            Console.WriteLine("Sum total: " + sum);
         }
 
 

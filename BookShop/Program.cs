@@ -23,6 +23,13 @@ namespace BookShop
             Console.WriteLine("Items on for-sale list: " + library01.AvailableSales.Count);
             PrintBookAvailableSales(library01); // Print books on the list
 
+            library01.sellBook(pythonBook); // selling book method 
+            library01.sellBook(programmingBook); // selling book method 
+
+            Console.WriteLine("Items on for-sale list: " + library01.AvailableSales.Count);
+            PrintBookAvailableSales(library01); // Print books on the list
+
+            library01.reportSales(library01);
         }
         public static void PrintBookAvailableSales(BookShop i)
         {
@@ -31,6 +38,7 @@ namespace BookShop
                 Console.WriteLine("Book: " + item.title);
             }
         }
+
         
 
    }
