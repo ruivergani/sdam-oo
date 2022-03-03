@@ -6,86 +6,86 @@ namespace LibraryTests
     [TestClass]
     public class BookTests
     {
-        //[TestMethod]
-        //public void Test_WhenBookIsCreated_ExpectAuthorIsCorrect()
-        //{
-        //    Book b = new Book("Graham", "", "");
+        [TestMethod]
+        public void Test_WhenBookIsCreated_ExpectAuthorIsCorrect()
+        {
+            Book b = new Book("Graham", "", "");
 
-        //    Assert.AreEqual("Graham", b.Author);
-        //}
+            Assert.AreEqual("Graham", b.Author);
+        }
 
-        //[TestMethod]
-        //public void Test_WhenBookIsCreated_ExpectISBNIsCorrect()
-        //{
-        //    Book b = new Book("", "1234567890123", "");
+        [TestMethod]
+        public void Test_WhenBookIsCreated_ExpectISBNIsCorrect()
+        {
+            Book b = new Book("", "1234567890123", "");
 
-        //    Assert.AreEqual("1234567890123", b.ISBN);
-        //}
+            Assert.AreEqual("1234567890123", b.ISBN);
+        }
 
-        //[TestMethod]
-        //public void Test_WhenBookIsCreated_ExpectTitleIsCorrect()
-        //{
-        //    Book b = new Book("", "", "Arrays are static");
+        [TestMethod]
+        public void Test_WhenBookIsCreated_ExpectTitleIsCorrect()
+        {
+            Book b = new Book("", "", "Arrays are static");
 
-        //    Assert.AreEqual("Arrays are static", b.Title);
-        //}
+            Assert.AreEqual("Arrays are static", b.Title);
+        }
 
-        //[TestMethod]
-        //public void Test_WhenBookIsCreated_ExpectItHasNoCopies()
-        //{
-        //    Book b = new Book("", "", "");
+        [TestMethod]
+        public void Test_WhenBookIsCreated_ExpectItHasNoCopies()
+        {
+            Book b = new Book("", "", "");
 
-        //    Assert.AreEqual(0, b.GetCopies().Length);
-        //}
+            Assert.AreEqual(0, b.GetCopies().Length); //number of copies should be zero we have not added any
+        }
 
-        //[TestMethod]
-        //public void Test_WhenTwoConsecutiveBooksAreCreated_ExpectTheIdOfTheSecondBookIsOneMoreThanTheIdOfTheFirst()
-        //{
-        //    Book b1 = new Book("", "", "");
-        //    Book b2 = new Book("", "", "");
+        [TestMethod]
+        public void Test_WhenTwoConsecutiveBooksAreCreated_ExpectTheIdOfTheSecondBookIsOneMoreThanTheIdOfTheFirst()
+        {
+            Book b1 = new Book("", "", "");
+            Book b2 = new Book("", "", "");
 
-        //    Assert.AreEqual(b1.Id+1, b2.Id);
-        //}
+            Assert.AreEqual(b1.Id + 1, b2.Id);
+        }
 
-        //[TestMethod]
-        //public void Test_WhenBookHasNineCopies_ExpectAnotherCopyCanBeAdded()
-        //{
-        //    Book b = new Book("", "", "");
-        //    for (int i = 0; i < 9; i++)
-        //    {
-        //        new Copy(b);
-        //    }
-        //    Copy c = new Copy(b);
+        [TestMethod]
+        public void Test_WhenBookHasNineCopies_ExpectAnotherCopyCanBeAdded()
+        {
+            Book b = new Book("", "", "");
+            for (int i = 0; i < 9; i++)
+            {
+                new Copy(b);
+            }
+            Copy c = new Copy(b);
 
-        //    Assert.AreEqual(c, b.GetCopies()[9]);
-        //}
+            Assert.AreEqual(c, b.GetCopies()[9]);
+        }
 
-        //[TestMethod]
-        //public void Test_WhenBookHasTenCopies_ExpectAnotherCopyCanBeAdded()
-        //{
-        //    Book b = new Book("", "", "");
-        //    for (int i = 0; i < 10; i++)
-        //    {
-        //        new Copy(b);
-        //    }
-        //    Copy c = new Copy(b);
+        [TestMethod]
+        public void Test_WhenBookHasTenCopies_ExpectAnotherCopyCanBeAdded()
+        {
+            Book b = new Book("", "", "");
+            for (int i = 0; i < 10; i++)
+            {
+                new Copy(b);
+            }
+            Copy c = new Copy(b);
 
-        //    Assert.AreEqual(c, b.GetCopies()[10]);
-        //}
+            Assert.AreEqual(c, b.GetCopies()[10]); // not using array (use only Assert)
+        }
 
-        //[TestMethod]
-        //public void Test_WhenCopiesAreAddedToABook_ExpectCopiesAreHeldInTheOrderTheyAreAdded()
-        //{
-        //    Book b = new Book("", "", "");
-        //    Copy[] copies = 
-        //        {
-        //            new Copy(b),
-        //            new Copy(b),
-        //            new Copy(b),
-        //            new Copy(b)
-        //        };
+        [TestMethod]
+        public void Test_WhenCopiesAreAddedToABook_ExpectCopiesAreHeldInTheOrderTheyAreAdded()
+        {
+            Book b = new Book("", "", "");
+            Copy[] copies =
+                {
+                    new Copy(b),
+                    new Copy(b),
+                    new Copy(b),
+                    new Copy(b)
+                };
 
-        //    CollectionAssert.AreEqual(copies, b.GetCopies());
-        //}
+            CollectionAssert.AreEqual(copies, b.GetCopies()); // working with an array (use CollectionAssert)
+        }
     }
 }

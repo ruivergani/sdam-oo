@@ -14,13 +14,13 @@ namespace LibraryTests
             Assert.AreEqual("Graham", m.Name);
         }
 
-        //[TestMethod]
-        //public void Test_WhenTwoConsecutiveMembersAreCreated_ExpectTheIdOfTheSecondMemberIsOneMoreThanTheIdOfTheFirst()
-        //{
-        //    Member m1 = new Member("");
-        //    Member m2 = new Member("");
+        [TestMethod]
+        public void Test_WhenTwoConsecutiveMembersAreCreated_ExpectTheIdOfTheSecondMemberIsonemoreThantheidofthefirst()
+        {
+            Member m1 = new Member("");
+            Member m2 = new Member("");
 
-        //    Assert.AreEqual(m1.Id + 1, m2.Id);
-        //}
+            Assert.AreEqual(m1.Id + 1, m2.Id);
+        }
     }
 }
