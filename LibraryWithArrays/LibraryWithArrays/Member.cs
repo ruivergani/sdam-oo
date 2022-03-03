@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LibraryTests
+namespace LibraryWithArrays
 {
     public class Member // use public to make accessible to the others
     {
