@@ -13,7 +13,7 @@ namespace LibraryWithArrays
         public int Id { get;  }
         public DateTime LoanDate { get; } 
         public int NumberOfRenewals { get; private set;  }
-        public DateTime ReturnDate { get; }
+        public DateTime ReturnDate { get; private set; }
 
         public Loan(Member borrower, Copy copy)
         {
@@ -32,6 +32,19 @@ namespace LibraryWithArrays
             {
                 return false;
             }
+        }
+        public bool ReturnBook()
+        {
+            if (ReturnDate == null) //book has not yet been returned
+            {
+                ReturnDate = DateTime.Now;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
     }
 }
