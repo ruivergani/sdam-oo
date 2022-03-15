@@ -5,6 +5,7 @@ using System.Text;
 namespace UML_exemplo
 {
     public class Person{
+        // converting the UML Diagram to class
         /*  private string firstName { get; }
         private string lastName { get; set; }
 
