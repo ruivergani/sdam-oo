@@ -8,6 +8,7 @@ namespace Polimorphism_OOP
         {
             Console.WriteLine("Exercise about polymorphism.");
 
+            Shape myShape = new Shape();
             Rectangle myRectangle = new Rectangle(); // creating object of the class
             Circle myCircle = new Circle();
 
