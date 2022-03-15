@@ -11,7 +11,7 @@ namespace UML_exemplo
 
         public Pet CurrentPet;
 
-         public Person(string firstName, string lastName) // constructor
+        public Person(string firstName, string lastName) // constructor
         {
 
         }
@@ -22,7 +22,7 @@ namespace UML_exemplo
        */
         public Person() // constructor
         {
-
+         
         }
         
     }

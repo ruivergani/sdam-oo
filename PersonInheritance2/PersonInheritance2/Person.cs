@@ -4,7 +4,7 @@
     {
         public string Name { get; set; }
 
-        public Person() : this("???")
+        public Person() : this("???") // can have two constructors
         {
         }
 

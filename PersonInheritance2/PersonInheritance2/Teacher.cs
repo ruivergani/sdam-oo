@@ -8,7 +8,7 @@
         {
         }
 
-        public Teacher(string name, double wage) : base(name)
+        public Teacher(string name, double wage) : base(name) // refer to the superclass
         {
             this.Wage = wage;
         }
