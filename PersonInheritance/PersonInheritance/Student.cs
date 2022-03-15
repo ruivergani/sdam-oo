@@ -1,6 +1,6 @@
 ﻿namespace PersonInheritance
 {
-    public class Student : Person
+    public class Student : Person //subclass
     {
         public double Fees { get; set; }
     }
