@@ -7,7 +7,7 @@ namespace LibraryTests
     public class BookTests
     {
         [TestMethod]
-        public void Test_WhenBookIsCreated_ExpectAuthorIsCorrect()
+        public void Test_WhenBookIsCreated_ExpectAuthorIsCorrect() // author is correct
         {
             Book b = new Book("Graham", "", "");
 
@@ -15,7 +15,7 @@ namespace LibraryTests
         }
 
         [TestMethod]
-        public void Test_WhenBookIsCreated_ExpectISBNIsCorrect()
+        public void Test_WhenBookIsCreated_ExpectISBNIsCorrect() // ISBN is correct
         {
             Book b = new Book("", "1234567890123", "");
 
@@ -23,7 +23,7 @@ namespace LibraryTests
         }
 
         [TestMethod]
-        public void Test_WhenBookIsCreated_ExpectTitleIsCorrect()
+        public void Test_WhenBookIsCreated_ExpectTitleIsCorrect() // Title is correct
         {
             Book b = new Book("", "", "Arrays are static");
 
@@ -31,7 +31,7 @@ namespace LibraryTests
         }
 
         [TestMethod]
-        public void Test_WhenBookIsCreated_ExpectItHasNoCopies()
+        public void Test_WhenBookIsCreated_ExpectItHasNoCopies() // Object is correct
         {
             Book b = new Book("", "", "");
 
@@ -39,7 +39,7 @@ namespace LibraryTests
         }
 
         [TestMethod]
-        public void Test_WhenTwoConsecutiveBooksAreCreated_ExpectTheIdOfTheSecondBookIsOneMoreThanTheIdOfTheFirst()
+        public void Test_WhenTwoConsecutiveBooksAreCreated_ExpectTheIdOfTheSecondBookIsOneMoreThanTheIdOfTheFirst() // testing NEXT ID variable
         {
             Book b1 = new Book("", "", "");
             Book b2 = new Book("", "", "");

@@ -6,14 +6,15 @@ namespace LibraryWithArrays
 {
     public class Book
     {
+        // public string <name> { private set; } : makes already private being able to use in other classes
         private static int nextId = 1; // use of static is one restricted to that Class
         public string Author { get; }
-        public int Id { get;  }
+        public int Id { get; }
         public string ISBN { get; }
         public string Title { get; }
-        private int numCopies; //not being used in method so is a field
+        private int numCopies; //not being used in method so is a field - because there is no get method
 
-        private Copy[] copies; //an array called copies
+        private Copy[] copies; //an array called copies of the type class Copy[]
 
         public Book(string author, string iSBN, string title) // Control + . = generate constructor automatic
         {

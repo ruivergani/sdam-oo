@@ -11,7 +11,7 @@ namespace LibraryTests
         {
             Member m = new Member("Graham");
 
-            Assert.AreEqual("Graham", m.Name);
+            Assert.AreEqual("Graham", m.Name); //using Assert and comparing if the new object name graham is equal fo graham = meaning the object was created
         }
 
         [TestMethod]
