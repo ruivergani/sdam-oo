@@ -4,7 +4,7 @@ using System.Text;
 
 namespace week03_task3
 {
-    class Budgie
+    class Budgie : Pet
     {
         public string colourOfFeathers { get; private set; }
 

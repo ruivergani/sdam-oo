@@ -8,19 +8,28 @@ namespace week03_task3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Converting the Diagram into Program.");
-            // There is no need to declare previous superclass
-            Pet pet1 = new Pet("Toby", "Owner 1");
-            Pet pet2 = new Pet("Tobias", "Owner 2");
+            Console.WriteLine("Using an Array to store Pets.");
+            // Array
+            Pet[] pets =
+                {
+                    new Cat("Cat 1", "Owner 10", 28, 2),
+                    new Cat("Cat 2", "Owner 11", 24, 4),
+                    new Cat("Cat 3", "Owner 12", 26, 6),
+                    new Cat("Cat 4", "Owner 13", 25, 8),
+                    new Cat("Cat 5", "Owner 14", 24, 10),
+                    new Cat("Cat 6", "Owner 15", 23, 12),
 
-            //SubClass cat - can declare without superclass
-            Cat cat1 = new Cat(pet1.name, pet1.ownerName, 28, 10);
-            Cat cat2 = new Cat(pet2.name, pet1.ownerName, 24, 12);
-            Cat cat3 = new Cat("Mingau", pet2.ownerName, 26, 15);
+                    new Budgie("Budgie 1", "Owner 21", "Blue"),
+                    new Budgie("Budgie 2", "Owner 22", "Yellow"),
+                    new Budgie("Budgie 3", "Owner 23", "Green"),
+                    new Budgie("Budgie 4", "Owner 24", "White")
+                };
+            PrintPetDetails(pets); //printing an array
 
-            Budgie budgie1 = new Budgie("---", "---", "Blue");
-            Budgie budgie2 = new Budgie("---", "---", "Yellow");
+        }
 
+        private static void PrintPetDetails(Pet[] pets) // passing a as Array (Pet)
+        {
             Console.WriteLine("All pets\n========");
             Console.WriteLine(
                 "\t{0:8}   {1:10}   {2:5}   {3:11}   {4:14}",
@@ -29,15 +38,21 @@ namespace week03_task3
                 "\t{0:8}   {1:10}   {2:5}   {3:11}   {4:14}",
                 "========", "==========", "=====", "===========", "==============");
 
-            printCat(cat1);
-            printCat(cat2);
-            printCat(cat3);
-
-            printBudgie(budgie1);
-            printBudgie(budgie2);
-
+            foreach (Pet item in pets) // foreach structure
+            {
+                // validate either is cat or budgie
+                if(item is Cat)
+                {
+                    printCat((Cat) item);
+                }
+                else if(item is Budgie)
+                {
+                    printBudgie((Budgie) item);
+                }
+            }
+        
         }
-        // create methods for printing
+        // create methods for printing Cat and Budgie
         private static void printCat(Cat c)
         {
             Console.WriteLine(

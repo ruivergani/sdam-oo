@@ -4,7 +4,7 @@ using System.Text;
 
 namespace week03_task3
 {
-    class Cat
+    class Cat : Pet
     {
         public int numberOfTeeth { get; private set; }
         public int lengthOfTail { get; private set; }
