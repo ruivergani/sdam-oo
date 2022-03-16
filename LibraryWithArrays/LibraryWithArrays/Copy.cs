@@ -14,7 +14,7 @@
             Book = book;
             Id = nextId++;
             State = AVAILABLE_STATE;
-            book.AddCopy(this);
+            book.AddCopy(this); // tell the book class to add it as copy
         }
 
 

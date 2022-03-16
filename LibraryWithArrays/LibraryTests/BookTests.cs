@@ -48,7 +48,7 @@ namespace LibraryTests
         }
 
         [TestMethod]
-        public void Test_WhenBookHasNineCopies_ExpectAnotherCopyCanBeAdded()
+        public void Test_WhenBookHasNineCopies_ExpectAnotherCopyCanBeAdded() // test boundaries of copy array
         {
             Book b = new Book("", "", "");
             for (int i = 0; i < 9; i++)

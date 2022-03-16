@@ -7,11 +7,11 @@ namespace LibraryWithArrays
     public class Loan
     {
         private static int nextId = 1;
-        public Member Borrower { get; }
+        public Member Borrower { get; } //type Member (class)
         public Copy Copy { get;  }
         public DateTime DueDate { get; private set;  } // comes from system namespace - set is only available inside this class
         public int Id { get;  }
-        public DateTime LoanDate { get; } 
+        public DateTime LoanDate { get; }  // type: DateTime comes from datetime
         public int NumberOfRenewals { get; private set;  }
         public DateTime ReturnDate { get; private set; }
 

@@ -27,17 +27,19 @@ namespace LibraryWithArrays
         }
         public void AddCopy(Copy c)
         {
+            // if is same size will increase
             if (numCopies == copies.Length)
             {
+                // fix an array when the size is already fixed = solution is create a new array
                 // solution to increase size of the array is to create a new one and assign old values to it
                 Copy[] newCopies = new Copy[copies.Length + 5]; // new array in newCopies in case the length has reached 10
                 for(int i = 0; i < numCopies; i++)
                 {
                     newCopies[i] = copies[i];
                 }
-                copies = newCopies;
+                copies = newCopies; //fixed array of length 15
             }
-            copies[numCopies++] = c;
+            copies[numCopies++] = c; // to perform the add_copy class
         }
         public Copy[] GetCopies()
         {
@@ -46,7 +48,7 @@ namespace LibraryWithArrays
             {
                 c[i] = copies[i];
             }
-            return c; // return copies frmo array Copy[]
+            return c; // return copies from array Copy[]
         }
 
     }
