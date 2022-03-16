@@ -6,19 +6,19 @@ namespace LibraryWithArrays
 {
     public class Library
     {
-        public List<Book> Books { get; } // List of Book objects with get
+        public Book[] Books { get; } // List of Book objects with get
         public Copy[] copies { get; } // Make an array named copies of the type Copy
-        private List<Loan> Loans { get; }
-        private List<Member> Members { get; }
+        private Loan[] Loans { get; }
+        private Member[] Members { get; }
         public Library() // constructor - initialise list
         {
-            Books = new List<Book>();
+            Books = new Book[100];
             copies = new Copy[50]; // you need to set the size 
-            Loans = new List<Loan>();
-            Members = new List<Member>();
+            Loans = new Loan[250];
+            Members = new Member[100];
         }
         // creating methods
-        private Copy FindCopy(int copyId) //return Copy object
+        private Copy FindCopy(int copyId) // Find Copy - return Copy object
         {
             Copy c = null;
             for (int i = 0; c == null && i < copies.Length; i++) // linear search through the array
@@ -30,11 +30,31 @@ namespace LibraryWithArrays
             }
             return c;
         }
-        private Member FindMember(int memberId)
+        private Member FindMember(int memberId) // Find Member 
         {
-            // if the member is not found return null - reason for using try
-            return Members[memberId]; // it is a list
-
+            Member m = null;
+            for (int i = 0; m == null && i < Members.Length; i++) // linear search through the array
+            {
+                if (Members[i].Id == memberId)
+                {
+                    m = Members[i];
+                }
+            }
+            return m;
+        }
+        private Loan FindLoan(int memberId, int copyId) // Find
+        {
+            Loan loan = null;
+            for (int i = 0; loan == null && i < Loans.Length; i++) // linear search through the array
+            {
+                if (Loans[i].Borrower.Id == memberId && 
+                    Loans[i].Copy.Id == copyId &&
+                    Loans[i].ReturnDate.ToBinary() == 0)
+                {
+                    loan = Loans[i];
+                }
+            }
+            return loan;
         }
     }
 }
