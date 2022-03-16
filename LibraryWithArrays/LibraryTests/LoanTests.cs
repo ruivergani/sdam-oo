@@ -40,8 +40,8 @@ namespace LibraryTests
 
             Loan loan = new Loan(m, c);
 
-            string expectedLoanDate = DateTime.Now.ToString("dd/MM/yyyy");
-            Assert.AreEqual(expectedLoanDate, loan.LoanDate.ToString("dd/MM/yyyy"));
+            string expectedLoanDate = DateTime.Now.ToString("dd/MM/yyyy"); // converting to string
+            Assert.AreEqual(expectedLoanDate, loan.LoanDate.ToString("dd/MM/yyyy")); // comparing the dates to return now
         }
 
         [TestMethod]
