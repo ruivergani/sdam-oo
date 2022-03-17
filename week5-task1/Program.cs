@@ -28,5 +28,7 @@ namespace week5_task1
             }
 
         }
+        // create functions/methods
+
     }
 }
