@@ -45,6 +45,7 @@ namespace QueueExample
 
         public override string ToString() // convert to String the values
         {
+            // Override this string method and use it to call the Console.WriteLine
             return 
                 string.Format(
                     "{0, 3}  {1} {2, 3}  =  {3}",

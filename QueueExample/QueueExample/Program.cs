@@ -16,7 +16,7 @@ namespace QueueExample
                 int num1 = rand.Next(1, 101); // generate random value min-max
                 int num2 = rand.Next(1, 101);
                 char op = operators[rand.Next(0, operators.Length)]; // random value from the array
-                Result r = new Result(num1, num2, op);
+                Result r = new Result(num1, num2, op); // Creating the Result Object
                 //Console.WriteLine(r);
                 q.Enqueue(r); // add to the list
             }
