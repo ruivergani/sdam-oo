@@ -23,7 +23,7 @@ namespace DictionaryExamples
                     PersonId = id,
                     Name = name
                 };
-
+                Console.WriteLine(p.Name + p.PersonId);
                 dict.Add(id, p); //adding person p with this key (id) to the values p(id and name)
                 sDict.Add(id, p);
             }

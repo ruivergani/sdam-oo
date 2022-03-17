@@ -13,7 +13,7 @@ namespace ListExample
             for (int i = 0; i < 5; i++)
             {
                 Console.Write("Enter integer {0}: ", i+1);
-                //list.Add(Console.ReadLine());
+                //list.Add(Console.ReadLine()); = read line returns string
                 list.Add(Convert.ToInt32(Console.ReadLine())); // add to the List
             }
 
