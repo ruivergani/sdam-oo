@@ -13,7 +13,7 @@ namespace ListExample
             {
                 Console.Write("Enter integer {0}: ", i+1);
                 //list.Add(Console.ReadLine());
-                list.Add(Convert.ToInt32(Console.ReadLine()));
+                list.Add(Convert.ToInt32(Console.ReadLine())); // add
             }
 
             Console.WriteLine("\nContents of the list:");
@@ -28,10 +28,10 @@ namespace ListExample
             Console.WriteLine("\nThe list contains 12: {0}", list.Contains(12));
 
             Console.WriteLine("\nRemove 12");
-            list.Remove(12);
+            list.Remove(12); // remove
             Console.WriteLine("The list contains 12: {0}", list.Contains(12));
 
-            list.Reverse();
+            list.Reverse(); //reverse
             Console.WriteLine("\nContents of the list after reversal:");
             Console.Write("\t");
             foreach (int item in list)
@@ -39,7 +39,7 @@ namespace ListExample
                 Console.Write("{0}  ", item);
             }
 
-            list.Sort();
+            list.Sort(); // sort
             Console.WriteLine("\n\nContents of the list after sorting:");
             Console.Write("\t");
             foreach (int item in list)
