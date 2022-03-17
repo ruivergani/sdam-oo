@@ -15,7 +15,7 @@ namespace StackExample
             Date = date;
         }
 
-        public override string ToString()
+        public override string ToString() // override the method which comes from System
         {
             return
                 String.Format(

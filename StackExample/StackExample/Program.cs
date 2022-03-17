@@ -10,7 +10,7 @@ namespace StackExample
             MessageStack stack = new MessageStack();
             Random rand = new Random();
             List<string> people = CreatePersonList();
-            string[] message = CreateMessagesArray();
+            string[] message = CreateMessagesArray(); 
 
             int numPeople = people.Count;
             for (int i = 0; i < numPeople; i++)
