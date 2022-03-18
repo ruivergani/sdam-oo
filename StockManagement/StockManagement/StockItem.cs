@@ -22,7 +22,7 @@ namespace StockManagement
             }
             set
             {
-                if (value < 0)
+                if (value <= 0)
                 {
                     throw new ArithmeticException("Item code must be a positive integer. ");
                 }
@@ -71,7 +71,6 @@ namespace StockManagement
                 {
                     quantityInStock = value;
                 }
-        
             }
         }
 
@@ -79,9 +78,20 @@ namespace StockManagement
         //Constructor
         public StockItem(int code, string name, int quantityInStock)
         {
-            Code = code;
-            Name = name;
-            QuantityInStock = quantityInStock;
+            if ((code <= 0) && (name == "") && (quantityInStock <= 0))
+            {
+                throw new ArithmeticException("Item code must be a positive integer. Item name cannot be blank. Quantity cannot be zero or negative. ");
+            }
+            else if (){
+
+            }
+            else
+            {
+                Code = code;
+                Name = name;
+                QuantityInStock = quantityInStock;
+            }
+           
         }
         //Methods
         public void AddQuantity(int qty)
