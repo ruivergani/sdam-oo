@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LectureAbstractClass
 {
-    class Cat : Pet
+    class Cat : Pet, IAnimal
     {
         public int NumberOfTeeth { get; }
         public int LengthOfTail { get;  }
@@ -20,5 +20,14 @@ namespace LectureAbstractClass
             return $"Cat '{name}' has {NumberOfTeeth} teeth and a {LengthOfTail} cm of tail.";
         }
         // Hammerhead : Shark : Animal
+        // there come from the interface
+        public void Move()
+        {
+            Console.WriteLine("Stalking");
+        }
+        public void MakeSound()
+        {
+            Console.WriteLine("Meow");
+        }
     }
 }

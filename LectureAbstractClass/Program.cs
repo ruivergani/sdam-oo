@@ -13,12 +13,17 @@ namespace LectureAbstractClass
             Pet pet1 = new Cat("My pet", "Rui Neto", 28, 12); // superclass Pet using Cat as an instance
 
             // creating a list of Pets
-            List<Pet> petsList = new List<Pet>()
+            //List<Pet> petsList = new List<Pet>()
+            //{
+            //   new Cat("My pet", "Rui Neto", 28, 12)
+            //};
+            // IMPLEMENTING THE INTERFACE
+            List<IAnimal> animals = new List<IAnimal>()
             {
-                new Cat("My pet", "Rui Neto", 28, 12)
+                new Cat("My pet", "Rui Neto", 28, 12) // implement the animal interface
             };
 
-            foreach  (Pet item in petsList) // pet type - press tab 2xtimes
+            foreach  (IAnimal item in animals) // pet type - press tab 2xtimes
             {
                 Console.WriteLine(item.ToString()); // call the To String method
             }
