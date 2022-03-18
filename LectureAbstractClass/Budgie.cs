@@ -15,5 +15,10 @@ namespace LectureAbstractClass
         {
             ColourOfFeathers = colourOfFeathers;
         }
+        // must implement the abstract ToString
+        public override string ToString()
+        {
+            return $"Budgie '{name}' has {ColourOfFeathers} feathers.";
+        }
     }
 }

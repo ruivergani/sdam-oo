@@ -14,5 +14,11 @@ namespace LectureAbstractClass
             NumberOfTeeth = numberOfTeeth;
             LengthOfTail = lengthOfTail;
         }
+        // must implement the abstract ToString
+        public override string ToString()
+        {
+            return $"Cat '{name}' has {NumberOfTeeth} teeth and a {LengthOfTail} cm of tail.";
+        }
+        // Hammerhead : Shark : Animal
     }
 }
