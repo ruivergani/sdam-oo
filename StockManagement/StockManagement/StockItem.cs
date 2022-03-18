@@ -63,7 +63,15 @@ namespace StockManagement
             }
             set
             {
-                quantityInStock = value;
+                if (value <= 0)
+                {
+                    throw new ArithmeticException("Quantity cannot be zero or negative. ");
+                }
+                else
+                {
+                    quantityInStock = value;
+                }
+        
             }
         }
 

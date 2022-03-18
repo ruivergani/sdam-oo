@@ -77,19 +77,19 @@ namespace StockManagementTests
             }
         }
 
-        //[TestMethod]
-        //public void _08_New_stock_item_with_non_positive_quantity_has_correct_exception_message()
-        //{
-        //    try
-        //    {
-        //        new StockItem(1, "Paper", -23);
-        //        Assert.Fail("Exception not thrown");
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Assert.AreEqual("Quantity cannot be zero or negative. ", e.Message);
-        //    }
-        //}
+        [TestMethod]
+        public void _08_New_stock_item_with_non_positive_quantity_has_correct_exception_message()
+        {
+            try
+            {
+                new StockItem(1, "Paper", -23);
+                Assert.Fail("Exception not thrown");
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual("Quantity cannot be zero or negative. ", e.Message);
+            }
+        }
 
         //[TestMethod]
         //public void _09_New_stock_item_with_multiple_errors_has_correct_exception_message()
