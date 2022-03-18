@@ -96,7 +96,15 @@ namespace StockManagement
         //Methods
         public void AddQuantity(int qty)
         {
-
+            if (qty <= 0)
+            {
+                throw new ArithmeticException("Quantity cannot be negative");
+            }
+            else
+            {
+                QuantityInStock += qty;
+            }
+            
         }
         public void SubtractQuantity(int qty)
         {

@@ -118,28 +118,28 @@ namespace StockManagementTests
             }
         }
 
-        //[TestMethod]
-        //public void _11_Adding_quantity_to_stock_item_increases_quantity_in_stock()
-        //{
-        //    StockItem item = new StockItem(1, "Pencil", 12);
-        //    item.AddQuantity(13);
-        //    Assert.AreEqual(25, item.QuantityInStock);
-        //}
+        [TestMethod]
+        public void _11_Adding_quantity_to_stock_item_increases_quantity_in_stock()
+        {
+            StockItem item = new StockItem(1, "Pencil", 12);
+            item.AddQuantity(13);
+            Assert.AreEqual(25, item.QuantityInStock);
+        }
 
-        //[TestMethod]
-        //public void _12_Adding_non_positive_quantity_to_stock_item_has_correct_exception_message()
-        //{
-        //    try
-        //    {
-        //        StockItem item = new StockItem(1, "Pencil", 12);
-        //        item.AddQuantity(-13);
-        //        Assert.Fail("Exception not thrown");
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Assert.AreEqual("Quantity cannot be negative", e.Message);
-        //    }
-        //}
+        [TestMethod]
+        public void _12_Adding_non_positive_quantity_to_stock_item_has_correct_exception_message()
+        {
+            try
+            {
+                StockItem item = new StockItem(1, "Pencil", 12);
+                item.AddQuantity(-13);
+                Assert.Fail("Exception not thrown");
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual("Quantity cannot be negative", e.Message);
+            }
+        }
 
         //[TestMethod]
         //public void _13_Adding_non_positive_quantity_to_stock_item_does_not_change_quantity_in_stock()
