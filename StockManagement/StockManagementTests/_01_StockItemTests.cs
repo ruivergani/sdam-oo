@@ -141,19 +141,19 @@ namespace StockManagementTests
             }
         }
 
-        //[TestMethod]
-        //public void _13_Adding_non_positive_quantity_to_stock_item_does_not_change_quantity_in_stock()
-        //{
-        //    StockItem item = new StockItem(1, "Pencil", 12);
-        //    try
-        //    {
-        //        item.AddQuantity(-13);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        Assert.AreEqual(12, item.QuantityInStock);
-        //    }
-        //}
+        [TestMethod]
+        public void _13_Adding_non_positive_quantity_to_stock_item_does_not_change_quantity_in_stock()
+        {
+            StockItem item = new StockItem(1, "Pencil", 12);
+            try
+            {
+                item.AddQuantity(-13);
+            }
+            catch (Exception)
+            {
+                Assert.AreEqual(12, item.QuantityInStock);
+            }
+        }
 
         //[TestMethod]
         //public void _14_Removing_quantity_from_stock_item_decreases_quantity_in_stock()
