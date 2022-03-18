@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LectureAbstractClass
 {
-    class Dog : IAnimal  //interface
+    class Dog : Imover, IsoundMaker  //interface
     {
         // must implement the methods from the interface
         public void Move()
@@ -15,5 +15,11 @@ namespace LectureAbstractClass
         {
             Console.WriteLine("Barking");
         }
+        // Part of the interface segregation that is useful
+        public void MakeMove()
+        {
+            Console.WriteLine("Running");
+        }
+        // the idea would be divide the methods into the interface, to make sure that you do not make a requirement
     }
 }

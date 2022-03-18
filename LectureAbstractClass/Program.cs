@@ -26,6 +26,8 @@ namespace LectureAbstractClass
             foreach  (IAnimal item in animals) // pet type - press tab 2xtimes
             {
                 Console.WriteLine(item.ToString()); // call the To String method
+                item.MakeSound(); // because of polymorphism each animal will make their own sound
+                item.Move();
             }
         }
     }
