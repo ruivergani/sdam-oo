@@ -14,68 +14,68 @@ namespace StockManagementTests
             Assert.AreEqual(1, item.Code);
         }
 
-        //[TestMethod]
-        //public void _02_New_stock_item_has_correct_name()
-        //{
-        //    StockItem item = new StockItem(1, "Pencil", 12);
-        //    Assert.AreEqual("Pencil", item.Name);
-        //}
+        [TestMethod]
+        public void _02_New_stock_item_has_correct_name()
+        {
+            StockItem item = new StockItem(1, "Pencil", 12);
+            Assert.AreEqual("Pencil", item.Name);
+        }
 
-        //[TestMethod]
-        //public void _03_New_stock_item_has_correct_quantity()
-        //{
-        //    StockItem item = new StockItem(1, "Pen", 2);
-        //    Assert.AreEqual(2, item.QuantityInStock);
-        //}
+        [TestMethod]
+        public void _03_New_stock_item_has_correct_quantity()
+        {
+            StockItem item = new StockItem(1, "Pen", 2);
+            Assert.AreEqual(2, item.QuantityInStock);
+        }
 
-        //[TestMethod]
-        //public void _04_New_stock_item_still_has_correct_quantity()
-        //{
-        //    StockItem item = new StockItem(1, "Pen", 32);
-        //    Assert.AreEqual(32, item.QuantityInStock);
-        //}
+        [TestMethod]
+        public void _04_New_stock_item_still_has_correct_quantity()
+        {
+            StockItem item = new StockItem(1, "Pen", 32);
+            Assert.AreEqual(32, item.QuantityInStock);
+        }
 
-        //[TestMethod]
-        //public void _05_New_stock_item_with_non_positive_code_has_correct_exception_message()
-        //{
-        //    try
-        //    {
-        //        new StockItem(-2, "Paper", 500);
-        //        Assert.Fail("Exception not thrown");
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Assert.AreEqual("Item code must be a positive integer. ", e.Message);
-        //    }
-        //}
+        [TestMethod]
+        public void _05_New_stock_item_with_non_positive_code_has_correct_exception_message()
+        {
+            try
+            {
+                new StockItem(-2, "Paper", 500);
+                Assert.Fail("Exception not thrown");
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual("Item code must be a positive integer. ", e.Message);
+            }
+        }
 
-        //[TestMethod]
-        //public void _06_New_stock_item_with_empty_name_has_correct_exception_message()
-        //{
-        //    try
-        //    {
-        //        new StockItem(10, "", 50);
-        //        Assert.Fail("Exception not thrown");
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Assert.AreEqual("Item name cannot be blank. ", e.Message);
-        //    }
-        //}
+        [TestMethod]
+        public void _06_New_stock_item_with_empty_name_has_correct_exception_message()
+        {
+            try
+            {
+                new StockItem(10, "", 50);
+                Assert.Fail("Exception not thrown");
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual("Item name cannot be blank. ", e.Message);
+            }
+        }
 
-        //[TestMethod]
-        //public void _07_New_stock_item_with_just_spaces_for_name_has_correct_exception_message()
-        //{
-        //    try
-        //    {
-        //        new StockItem(10, "    ", 50);
-        //        Assert.Fail("Exception not thrown");
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Assert.AreEqual("Item name cannot be just spaces. ", e.Message);
-        //    }
-        //}
+        [TestMethod]
+        public void _07_New_stock_item_with_just_spaces_for_name_has_correct_exception_message()
+        {
+            try
+            {
+                new StockItem(10, "    ", 50);
+                Assert.Fail("Exception not thrown");
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual("Item name cannot be just spaces. ", e.Message);
+            }
+        }
 
         //[TestMethod]
         //public void _08_New_stock_item_with_non_positive_quantity_has_correct_exception_message()
