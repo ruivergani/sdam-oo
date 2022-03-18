@@ -105,18 +105,18 @@ namespace StockManagementTests
             }
         }
 
-        //[TestMethod]
-        //public void _10_New_stock_item_with_multiple_errors_has_correct_exception_message()
-        //{
-        //    try
-        //    {
-        //        new StockItem(-12, "   ", 13);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Assert.AreEqual("Item code must be a positive integer. Item name cannot be just spaces. ", e.Message);
-        //    }
-        //}
+        [TestMethod]
+        public void _10_New_stock_item_with_multiple_errors_has_correct_exception_message()
+        {
+            try
+            {
+                new StockItem(-12, "   ", 13);
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual("Item code must be a positive integer. Item name cannot be just spaces. ", e.Message);
+            }
+        }
 
         //[TestMethod]
         //public void _11_Adding_quantity_to_stock_item_increases_quantity_in_stock()

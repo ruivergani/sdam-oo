@@ -82,8 +82,8 @@ namespace StockManagement
             {
                 throw new ArithmeticException("Item code must be a positive integer. Item name cannot be blank. Quantity cannot be zero or negative. ");
             }
-            else if (){
-
+            else if ((code <= 0) && (name.Contains(" "))){
+                throw new ArithmeticException("Item code must be a positive integer. Item name cannot be just spaces. ");
             }
             else
             {
