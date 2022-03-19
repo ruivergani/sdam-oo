@@ -32,13 +32,13 @@ namespace StockManagementTests
             Assert.AreEqual(2, mgr.GetAllStockItems().Count);
         }
 
-        //[TestMethod]
-        //public void _04_CreateStockItem_returns_a_StockItem()
-        //{
-        //    Assert.IsInstanceOfType(
-        //        new StockManager().CreateStockItem(1, "Pen", 2),
-        //        typeof(StockItem));
-        //}
+        [TestMethod]
+        public void _04_CreateStockItem_returns_a_StockItem()
+        {
+            Assert.IsInstanceOfType(
+                new StockManager().CreateStockItem(1, "Pen", 2),
+                typeof(StockItem));
+        }
 
         //[TestMethod]
         //public void _05_FindStockItem_returns_an_existing_StockItem()

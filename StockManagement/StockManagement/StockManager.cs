@@ -32,6 +32,7 @@ namespace StockManagement
         public StockItem CreateStockItem(int code, string name, int quantityInStock)
         {
             StockItem stockitem = null;
+            stockitem = new StockItem(code, name, quantityInStock); // Create new instance object
             StockItems.Add(Id, stockitem);
             Id++; // increment the ID
             return stockitem;
