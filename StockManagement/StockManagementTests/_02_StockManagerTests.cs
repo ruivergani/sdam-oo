@@ -40,13 +40,13 @@ namespace StockManagementTests
                 typeof(StockItem));
         }
 
-        //[TestMethod]
-        //public void _05_FindStockItem_returns_an_existing_StockItem()
-        //{
-        //    StockManager mgr = new StockManager();
-        //    mgr.CreateStockItem(1, "Pen", 2);
-        //    Assert.AreEqual("Pen", mgr.FindStockItem(1).Name);
-        //}
+        [TestMethod]
+        public void _05_FindStockItem_returns_an_existing_StockItem()
+        {
+            StockManager mgr = new StockManager();
+            mgr.CreateStockItem(1, "Pen", 2);
+            Assert.AreEqual("Pen", mgr.FindStockItem(1).Name);
+        }
 
         //[TestMethod]
         //public void _06_FindStockItem_returns_null_if_StockItem_does_not_exist()

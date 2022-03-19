@@ -37,6 +37,18 @@ namespace StockManagement
             Id++; // increment the ID
             return stockitem;
         }
+        public StockItem FindStockItem(int code)
+        {
+            StockItem item = null;
+            for (int i = 0; i < StockItems.Count; i++) // Reading through the Dictionary
+            {
+                if(StockItems[i].Code == code) // match the code of the product
+                {
+                    item = StockItems[i];
+                }
+            }
+            return item; // return product found
+        }
 
     }
 }
