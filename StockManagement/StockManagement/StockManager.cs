@@ -6,5 +6,25 @@ namespace StockManagement
 {
     public class StockManager
     {
+
+        //Attributes
+        SortedDictionary<int, StockItem> StockItems
+            = new SortedDictionary<int, StockItem>();
+
+        public StockManager(SortedDictionary<int, StockItem> stockItems)
+        {
+            StockItems = stockItems;
+        }
+        public StockManager()
+        {
+
+        }
+
+
+        //Methods
+        public SortedDictionary<int, StockItem> GetAllStockItems()
+        {
+            return StockItems;
+        }
     }
 }

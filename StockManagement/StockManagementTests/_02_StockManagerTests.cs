@@ -8,19 +8,19 @@ namespace StockManagementTests
     [TestClass]
     public class _02_StockManagerTests
     {
-        //[TestMethod]
-        //public void _01_GetAllStockItems_does_not_return_null()
-        //{
-        //    Assert.IsNotNull(new StockManager().GetAllStockItems());
-        //}
+        [TestMethod]
+        public void _01_GetAllStockItems_does_not_return_null()
+        {
+            Assert.IsNotNull(new StockManager().GetAllStockItems());
+        }
 
-        //[TestMethod]
-        //public void _02_GetAllStockItems_returns_a_sorted_dictonary()
-        //{
-        //    Assert.IsInstanceOfType(
-        //        new StockManager().GetAllStockItems(), 
-        //        typeof(SortedDictionary<int, StockItem>));
-        //}
+        [TestMethod]
+        public void _02_GetAllStockItems_returns_a_sorted_dictonary()
+        {
+            Assert.IsInstanceOfType(
+                new StockManager().GetAllStockItems(),
+                typeof(SortedDictionary<int, StockItem>));
+        }
 
         //[TestMethod]
         //public void _03_CreateStockItem_adds_a_new_StockItem_to_its_SortedDictionary()
