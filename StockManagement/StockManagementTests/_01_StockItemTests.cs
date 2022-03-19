@@ -155,78 +155,78 @@ namespace StockManagementTests
             }
         }
 
-        //[TestMethod]
-        //public void _14_Removing_quantity_from_stock_item_decreases_quantity_in_stock()
-        //{
-        //    StockItem item = new StockItem(1, "Pencil", 12);
-        //    item.SubtractQuantity(10);
-        //    Assert.AreEqual(2, item.QuantityInStock);
-        //}
+        [TestMethod]
+        public void _14_Removing_quantity_from_stock_item_decreases_quantity_in_stock()
+        {
+            StockItem item = new StockItem(1, "Pencil", 12);
+            item.SubtractQuantity(10);
+            Assert.AreEqual(2, item.QuantityInStock);
+        }
 
-        //[TestMethod]
-        //public void _15_Removing_non_positive_quantity_from_stock_item_has_correct_exception_message()
-        //{
-        //    try
-        //    {
-        //        StockItem item = new StockItem(1, "Pencil", 12);
-        //        item.SubtractQuantity(-13);
-        //        Assert.Fail("Exception not thrown");
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Assert.AreEqual("Quantity cannot be negative", e.Message);
-        //    }
-        //}
+        [TestMethod]
+        public void _15_Removing_non_positive_quantity_from_stock_item_has_correct_exception_message()
+        {
+            try
+            {
+                StockItem item = new StockItem(1, "Pencil", 12);
+                item.SubtractQuantity(-13);
+                Assert.Fail("Exception not thrown");
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual("Quantity cannot be negative", e.Message);
+            }
+        }
 
-        //[TestMethod]
-        //public void _16_Removing_non_positive_quantity_from_stock_item_does_not_change_quantity_in_stock()
-        //{
-        //    StockItem item = new StockItem(1, "Pencil", 12);
-        //    try
-        //    {
-        //        item.SubtractQuantity(-13);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        Assert.AreEqual(12, item.QuantityInStock);
-        //    }
-        //}
+        [TestMethod]
+        public void _16_Removing_non_positive_quantity_from_stock_item_does_not_change_quantity_in_stock()
+        {
+            StockItem item = new StockItem(1, "Pencil", 12);
+            try
+            {
+                item.SubtractQuantity(-13);
+            }
+            catch (Exception)
+            {
+                Assert.AreEqual(12, item.QuantityInStock);
+            }
+        }
 
-        //[TestMethod]
-        //public void _17_All_quantity_in_stock_can_be_removed_from_stock_item()
-        //{
-        //    StockItem item = new StockItem(1, "Protractor", 5);
-        //    item.SubtractQuantity(5);
-        //    Assert.AreEqual(0, item.QuantityInStock);
-        //}
+        [TestMethod]
+        public void _17_All_quantity_in_stock_can_be_removed_from_stock_item()
+        {
+            StockItem item = new StockItem(1, "Protractor", 5);
+            item.SubtractQuantity(5);
+            Assert.AreEqual(0, item.QuantityInStock);
+        }
 
-        //[TestMethod]
-        //public void _18_Removing_too_much_quantity_from_stock_item_has_correct_exception_message()
-        //{
-        //    try
-        //    {
-        //        StockItem item = new StockItem(1, "Set square", 3);
-        //        item.SubtractQuantity(13);
-        //        Assert.Fail("Exception not thrown");
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Assert.AreEqual("Insufficient quantity in stock", e.Message);
-        //    }
-        //}
+        [TestMethod]
+        public void _18_Removing_too_much_quantity_from_stock_item_has_correct_exception_message()
+        {
+            try
+            {
+                StockItem item = new StockItem(1, "Set square", 3);
+                item.SubtractQuantity(13);
+                Assert.Fail("Exception not thrown");
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual("Insufficient quantity in stock", e.Message);
+            }
+        }
 
-        //[TestMethod]
-        //public void _19_Removing_too_much_quantity_from_stock_item_does_not_change_quantity_in_stock()
-        //{
-        //    StockItem item = new StockItem(1, "Set square", 3);
-        //    try
-        //    {
-        //        item.SubtractQuantity(8);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        Assert.AreEqual(3, item.QuantityInStock);
-        //    }
-        //}
+        [TestMethod]
+        public void _19_Removing_too_much_quantity_from_stock_item_does_not_change_quantity_in_stock()
+        {
+            StockItem item = new StockItem(1, "Set square", 3);
+            try
+            {
+                item.SubtractQuantity(8);
+            }
+            catch (Exception)
+            {
+                Assert.AreEqual(3, item.QuantityInStock);
+            }
+        }
     }
 }

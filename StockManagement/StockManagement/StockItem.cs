@@ -44,7 +44,7 @@ namespace StockManagement
                 {
                     throw new ArgumentException("Item name cannot be blank. ");
                 }
-                else if (value.Contains(" "))
+                else if (value.Trim().Length == 0)
                 {
                     throw new ArgumentException("Item name cannot be just spaces. ");
                 }
@@ -63,7 +63,7 @@ namespace StockManagement
             }
             set
             {
-                if (value <= 0)
+                if (value < 0)
                 {
                     throw new ArithmeticException("Quantity cannot be zero or negative. ");
                 }
@@ -108,9 +108,21 @@ namespace StockManagement
         }
         public void SubtractQuantity(int qty)
         {
-
+            if (qty < 0)
+            {
+                throw new ArithmeticException("Quantity cannot be negative");
+            }
+            else
+            {
+                if (qty > quantityInStock)
+                {
+                    throw new ArithmeticException("Insufficient quantity in stock");
+                }
+                else
+                {
+                    QuantityInStock -= qty;
+                }
+            } 
         }
-
-
     }
 }
