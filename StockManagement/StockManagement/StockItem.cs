@@ -91,7 +91,10 @@ namespace StockManagement
                 Name = name;
                 QuantityInStock = quantityInStock;
             }
-           
+        }
+        public StockItem()
+        {
+
         }
         //Methods
         public void AddQuantity(int qty)

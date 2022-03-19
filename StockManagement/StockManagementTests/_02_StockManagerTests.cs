@@ -22,15 +22,15 @@ namespace StockManagementTests
                 typeof(SortedDictionary<int, StockItem>));
         }
 
-        //[TestMethod]
-        //public void _03_CreateStockItem_adds_a_new_StockItem_to_its_SortedDictionary()
-        //{
-        //    StockManager mgr = new StockManager();
-        //    mgr.CreateStockItem(1, "Pen", 2);
-        //    mgr.CreateStockItem(2, "Pencil", 5);
+        [TestMethod]
+        public void _03_CreateStockItem_adds_a_new_StockItem_to_its_SortedDictionary()
+        {
+            StockManager mgr = new StockManager();
+            mgr.CreateStockItem(1, "Pen", 2);
+            mgr.CreateStockItem(2, "Pencil", 5);
 
-        //    Assert.AreEqual(2, mgr.GetAllStockItems().Count);
-        //}
+            Assert.AreEqual(2, mgr.GetAllStockItems().Count);
+        }
 
         //[TestMethod]
         //public void _04_CreateStockItem_returns_a_StockItem()
