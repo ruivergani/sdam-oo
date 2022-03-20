@@ -48,13 +48,13 @@ namespace StockManagementTests
             Assert.AreEqual("Pen", mgr.FindStockItem(1).Name);
         }
 
-        //[TestMethod]
-        //public void _06_FindStockItem_returns_null_if_StockItem_does_not_exist()
-        //{
-        //    StockManager mgr = new StockManager();
-        //    mgr.CreateStockItem(1, "Pen", 2);
-        //    Assert.IsNull(mgr.FindStockItem(11));
-        //}
+        [TestMethod]
+        public void _06_FindStockItem_returns_null_if_StockItem_does_not_exist()
+        {
+            StockManager mgr = new StockManager();
+            mgr.CreateStockItem(1, "Pen", 2);
+            Assert.IsNull(mgr.FindStockItem(11));
+        }
 
         //[TestMethod]
         //public void _07_Creating_an_existing_StockItem_throws_an_exception()
@@ -81,96 +81,96 @@ namespace StockManagementTests
         //    }
         //}
 
-        //[TestMethod]
-        //public void _09_AddQuantityToStockItem_updates_the_correct_StockItem()
-        //{
-        //    StockManager mgr = new StockManager();
-        //    mgr.CreateStockItem(1, "Pen", 2);
-        //    mgr.CreateStockItem(2, "Pencil", 5);
-        //    mgr.CreateStockItem(3, "Protractor", 15);
+        [TestMethod]
+        public void _09_AddQuantityToStockItem_updates_the_correct_StockItem()
+        {
+            StockManager mgr = new StockManager();
+            mgr.CreateStockItem(1, "Pen", 2);
+            mgr.CreateStockItem(2, "Pencil", 5);
+            mgr.CreateStockItem(3, "Protractor", 15);
 
-        //    mgr.AddQuantityToStockItem(2, 3);
+            mgr.AddQuantityToStockItem(2, 3);
 
-        //    Assert.AreEqual(8, mgr.FindStockItem(2).QuantityInStock);
-        //}
+            Assert.AreEqual(8, mgr.FindStockItem(2).QuantityInStock);
+        }
 
-        //[TestMethod]
-        //public void _10_AddQuantityToStockItem_returns_the_correct_StockItem()
-        //{
-        //    StockManager mgr = new StockManager();
-        //    mgr.CreateStockItem(1, "Pen", 2);
-        //    mgr.CreateStockItem(2, "Pencil", 5);
-        //    mgr.CreateStockItem(3, "Protractor", 15);
+        [TestMethod]
+        public void _10_AddQuantityToStockItem_returns_the_correct_StockItem()
+        {
+            StockManager mgr = new StockManager();
+            mgr.CreateStockItem(1, "Pen", 2);
+            mgr.CreateStockItem(2, "Pencil", 5);
+            mgr.CreateStockItem(3, "Protractor", 15);
 
-        //    Assert.AreEqual(2, mgr.AddQuantityToStockItem(2, 3).Code);
-        //}
+            Assert.AreEqual(2, mgr.AddQuantityToStockItem(2, 3).Code);
+        }
 
-        //[TestMethod]
-        //public void _11_Adding_quantity_to_a_non_existing_StockItem_throws_an_exception()
-        //{
-        //    StockManager mgr = new StockManager();
-        //    mgr.CreateStockItem(1, "Pen", 2);
-        //    mgr.CreateStockItem(2, "Pencil", 5);
-        //    mgr.CreateStockItem(3, "Protractor", 15);
+        [TestMethod]
+        public void _11_Adding_quantity_to_a_non_existing_StockItem_throws_an_exception()
+        {
+            StockManager mgr = new StockManager();
+            mgr.CreateStockItem(1, "Pen", 2);
+            mgr.CreateStockItem(2, "Pencil", 5);
+            mgr.CreateStockItem(3, "Protractor", 15);
 
-        //    Assert.ThrowsException<Exception>(
-        //        () => mgr.AddQuantityToStockItem(4, 3));
-        //}
+            Assert.ThrowsException<Exception>(
+                () => mgr.AddQuantityToStockItem(4, 3));
+        }
 
-        //[TestMethod]
-        //public void _12_Adding_quantity_to_a_non_existing_StockItem_has_correct_exception_message()
-        //{
-        //    StockManager mgr = new StockManager();
-        //    mgr.CreateStockItem(1, "Pen", 2);
-        //    mgr.CreateStockItem(2, "Pencil", 5);
-        //    mgr.CreateStockItem(3, "Protractor", 15);
+        [TestMethod]
+        public void _12_Adding_quantity_to_a_non_existing_StockItem_has_correct_exception_message()
+        {
+            StockManager mgr = new StockManager();
+            mgr.CreateStockItem(1, "Pen", 2);
+            mgr.CreateStockItem(2, "Pencil", 5);
+            mgr.CreateStockItem(3, "Protractor", 15);
 
-        //    try
-        //    {
-        //        mgr.AddQuantityToStockItem(23, 2);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Assert.AreEqual("Stock item 23 not found. Quantity not added.", e.Message);
+            try
+            {
+                mgr.AddQuantityToStockItem(23, 2);
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual("Stock item 23 not found. Quantity not added.", e.Message);
 
-        //    }
-        //}
+            }
+        }
 
-        //[TestMethod]
-        //public void _13_RemoveQuantityStockItem_updates_the_correct_StockItem()
-        //{
-        //    StockManager mgr = new StockManager();
-        //    mgr.CreateStockItem(1, "Pen", 2);
-        //    mgr.CreateStockItem(2, "Pencil", 5);
-        //    mgr.CreateStockItem(3, "Protractor", 15);
+        [TestMethod]
+        public void _13_RemoveQuantityStockItem_updates_the_correct_StockItem()
+        {
+            StockManager mgr = new StockManager();
+            mgr.CreateStockItem(1, "Pen", 2);
+            mgr.CreateStockItem(2, "Pencil", 5);
+            mgr.CreateStockItem(3, "Protractor", 15);
 
-        //    mgr.RemoveQuantityFromStockItem(3, 4);
+            mgr.RemoveQuantityFromStockItem(3, 4);
 
-        //    Assert.AreEqual(11, mgr.FindStockItem(3).QuantityInStock);
-        //}
+            Assert.AreEqual(11, mgr.FindStockItem(3).QuantityInStock);
+        }
 
-        //[TestMethod]
-        //public void _14_RemoveQuantityStockItem_returns_the_correct_StockItem()
-        //{
-        //    StockManager mgr = new StockManager();
-        //    mgr.CreateStockItem(1, "Pen", 2);
-        //    mgr.CreateStockItem(2, "Pencil", 5);
-        //    mgr.CreateStockItem(3, "Protractor", 15);
+        [TestMethod]
+        public void _14_RemoveQuantityStockItem_returns_the_correct_StockItem()
+        {
+            StockManager mgr = new StockManager();
+            mgr.CreateStockItem(1, "Pen", 2);
+            mgr.CreateStockItem(2, "Pencil", 5);
+            mgr.CreateStockItem(3, "Protractor", 15);
 
-        //    Assert.AreEqual(3, mgr.RemoveQuantityFromStockItem(3, 4).Code);
-        //}
+            Assert.AreEqual(3, mgr.RemoveQuantityFromStockItem(3, 4).Code);
+        }
 
-        //[TestMethod]
-        //public void _15_Removing_quantity_from_a_non_existing_StockItem_throws_an_exception()
-        //{
-        //    StockManager mgr = new StockManager();
-        //    mgr.CreateStockItem(1, "Pen", 2);
-        //    mgr.CreateStockItem(2, "Pencil", 5);
-        //    mgr.CreateStockItem(3, "Protractor", 15);
+        [TestMethod]
+        public void _15_Removing_quantity_from_a_non_existing_StockItem_throws_an_exception()
+        {
+            StockManager mgr = new StockManager();
+            mgr.CreateStockItem(1, "Pen", 2);
+            mgr.CreateStockItem(2, "Pencil", 5);
+            mgr.CreateStockItem(3, "Protractor", 15);
 
-        //    Assert.ThrowsException<Exception>(
-        //        () => mgr.RemoveQuantityFromStockItem(14, 31));
-        //}
+            Assert.ThrowsException<Exception>(
+                () => mgr.RemoveQuantityFromStockItem(14, 31));
+        }
 
         //[TestMethod]
         //public void _16_Removing_quantity_from_a_non_existing_StockItem_has_correct_exception_message()
