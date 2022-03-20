@@ -7,33 +7,33 @@ namespace StockManagementTests
     [TestClass]
     public class _03_TransactionsTests
     {
-        //[TestMethod]
-        //public void _01_ItemAddedTransaction_has_correct_date_and_time()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    Transaction t = new ItemAddedTransaction(now, 1, "Pen", 1);
-        //    Assert.AreEqual(now, t.TransactionDatetime);
-        //}
+        [TestMethod]
+        public void _01_ItemAddedTransaction_has_correct_date_and_time()
+        {
+            DateTime now = DateTime.Now;
+            Transaction t = new ItemAddedTransaction(now, 1, "Pen", 1);
+            Assert.AreEqual(now, t.TransactionDatetime);
+        }
 
-        //[TestMethod]
-        //public void _02_ItemAddedTransaction_has_correct_transaction_name()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    Transaction t = new ItemAddedTransaction(now, 1, "Pen", 1);
-        //    Assert.AreEqual("Item added", t.TransactionName);
-        //}
+        [TestMethod]
+        public void _02_ItemAddedTransaction_has_correct_transaction_name()
+        {
+            DateTime now = DateTime.Now;
+            Transaction t = new ItemAddedTransaction(now, 1, "Pen", 1);
+            Assert.AreEqual("Item added", t.TransactionName);
+        }
 
-        //[TestMethod]
-        //public void _03_ToString_in_ItemAddedTransaction_returns_correct_string()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    string dateStr = now.ToString("dd/MM/yyyy HH:mm");
-        //    Transaction t = new ItemAddedTransaction(now, 1, "Pen", 2);
+        [TestMethod]
+        public void _03_ToString_in_ItemAddedTransaction_returns_correct_string()
+        {
+            DateTime now = DateTime.Now;
+            string dateStr = now.ToString("dd/MM/yyyy HH:mm");
+            Transaction t = new ItemAddedTransaction(now, 1, "Pen", 2);
 
-        //    Assert.AreEqual(
-        //        dateStr + " Item added       - Item 1: Pen added. Quantity in stock: 2",
-        //        t.ToString());
-        //}
+            Assert.AreEqual(
+                dateStr + " Item added       - Item 1: Pen added. Quantity in stock: 2",
+                t.ToString());
+        }
 
         //[TestMethod]
         //public void _04_ItemDeletedTransaction_has_correct_date_and_time()

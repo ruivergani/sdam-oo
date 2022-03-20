@@ -12,7 +12,6 @@ namespace StockManagement
         private string name;
         private int quantityInStock;
    
-
         //Get/Set Properties
         public int Code
         {
