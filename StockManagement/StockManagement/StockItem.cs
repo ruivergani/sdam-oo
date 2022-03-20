@@ -7,7 +7,7 @@ namespace StockManagement
 {
     public class StockItem
     {
-        //Attributes - fiels
+        //Attributes - fields
         private int code;
         private string name;
         private int quantityInStock;

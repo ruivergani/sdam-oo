@@ -7,30 +7,30 @@ namespace StockManagementTests
     [TestClass]
     public class _04_TransactionManagerTests
     {
-        //[TestMethod]
-        //public void _01_GetAllTransactions_does_not_return_null()
-        //{
-        //    Assert.IsNotNull(new TransactionManager().GetAllTransactions());
-        //}
+        [TestMethod]
+        public void _01_GetAllTransactions_does_not_return_null()
+        {
+            Assert.IsNotNull(new TransactionManager().GetAllTransactions());
+        }
 
-        //[TestMethod]
-        //public void _02_GetAllTransactions_returns_a_list()
-        //{
-        //    Assert.IsInstanceOfType(
-        //        new TransactionManager().GetAllTransactions(),
-        //        typeof(List<Transaction>));
-        //}
+        [TestMethod]
+        public void _02_GetAllTransactions_returns_a_list()
+        {
+            Assert.IsInstanceOfType(
+                new TransactionManager().GetAllTransactions(),
+                typeof(List<Transaction>));
+        }
 
-        //[TestMethod]
-        //public void _03_RecordItemAdded_adds_a_new_ItemAddedTransaction_to_its_List()
-        //{
-        //    TransactionManager mgr = new TransactionManager();
-        //    mgr.RecordItemAdded(new StockItem(1, "Pen", 2));
+        [TestMethod]
+        public void _03_RecordItemAdded_adds_a_new_ItemAddedTransaction_to_its_List()
+        {
+            TransactionManager mgr = new TransactionManager();
+            mgr.RecordItemAdded(new StockItem(1, "Pen", 2));
 
-        //    Assert.IsInstanceOfType(
-        //        mgr.GetAllTransactions()[0],
-        //        typeof(ItemAddedTransaction));
-        //}
+            Assert.IsInstanceOfType(
+                mgr.GetAllTransactions()[0],
+                typeof(ItemAddedTransaction));
+        }
 
         //[TestMethod]
         //public void _04_RecordItemDeleted_adds_a_new_ItemDeletedTransaction_to_its_List()
