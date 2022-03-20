@@ -35,21 +35,21 @@ namespace StockManagementTests
                 t.ToString());
         }
 
-        //[TestMethod]
-        //public void _04_ItemDeletedTransaction_has_correct_date_and_time()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    Transaction t = new ItemDeletedTransaction(now, 1, "Pen");
-        //    Assert.AreEqual(now, t.TransactionDatetime);
-        //}
+        [TestMethod]
+        public void _04_ItemDeletedTransaction_has_correct_date_and_time()
+        {
+            DateTime now = DateTime.Now;
+            Transaction t = new ItemDeletedTransaction(now, 1, "Pen");
+            Assert.AreEqual(now, t.TransactionDatetime);
+        }
 
-        //[TestMethod]
-        //public void _05_ItemDeletedTransaction_has_correct_transaction_name()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    Transaction t = new ItemDeletedTransaction(now, 1, "Pen");
-        //    Assert.AreEqual("Item deleted", t.TransactionName);
-        //}
+        [TestMethod]
+        public void _05_ItemDeletedTransaction_has_correct_transaction_name()
+        {
+            DateTime now = DateTime.Now;
+            Transaction t = new ItemDeletedTransaction(now, 1, "Pen");
+            Assert.AreEqual("Item deleted", t.TransactionName);
+        }
 
         //[TestMethod]
         //public void _06_ToString_in_ItemDeletedTransaction_returns_correct_string()
