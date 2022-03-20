@@ -8,6 +8,7 @@ namespace StockManagement
     {
         // Attributes 
         public List<Transaction> Transactions = new List<Transaction>();
+        
 
         // Methods
         public List<Transaction> GetAllTransactions()
@@ -17,7 +18,19 @@ namespace StockManagement
         }
         public void RecordItemAdded(StockItem stockItem)
         {
-
+            // NOT WORKING CODE
+        }
+        public void RecordItemDeleted(StockItem stockItem)
+        {
+            // NOT WORKING CODE
+        }
+        public void RecordQuantityAdded(StockItem stockItem, int quantityAdded)
+        {
+            // NOT WORKING CODE
+        }
+        public void RecordQuantityRemoved(StockItem stockItem, int quantityRemoved)
+        {
+            // NOT WORKING CODE
         }
     }
 }
