@@ -10,7 +10,7 @@ namespace StockManagement
         //Attributes
         SortedDictionary<int, StockItem> StockItems
             = new SortedDictionary<int, StockItem>();
-        public int nextId = 1;
+        private static int nextId = 1;
         public int Id { get; set; }
 
         public StockManager(SortedDictionary<int, StockItem> stockItems)
@@ -23,19 +23,33 @@ namespace StockManagement
 
         }
 
-
         //Methods
         public SortedDictionary<int, StockItem> GetAllStockItems()
         {
             return StockItems;
         }
+        internal partial class Dictionary<TKey, TValue> : System.Collections.Generic.Dictionary<TKey, TValue>
+        {
+            internal new virtual void Add(TKey key, TValue value)
+            {
+                if (base.ContainsKey(key))
+                {
+                    throw new Exception();
+                }
+                else
+                {
+                    base.Add(key, value);
+                }
+            }
+        }
         public StockItem CreateStockItem(int code, string name, int quantityInStock)
         {
-            StockItem stockitem = null;
-            stockitem = new StockItem(code, name, quantityInStock); // Create new instance object
-            StockItems.Add(Id, stockitem); //Dictionary Add value
-            Id++; // increment the ID
+            StockItem stockitem = new StockItem(code, name, quantityInStock); // Create new instance object
+            StockItems.Add(Id, stockitem); //Dictionary add key-value
+            Id++;
             //StockItem item = FindStockItem(code);
+            // The Add method throws an exception if the new key is already in the dictionary.
+
             return stockitem;
         }
         public StockItem FindStockItem(int code)
@@ -69,7 +83,32 @@ namespace StockManagement
         {
             StockItem stockitem;
             stockitem = FindStockItem(code);
-            stockitem.QuantityInStock -= quantityToRemove;
+            if(stockitem == null)
+            {
+                throw new Exception("Stock item "+code+" not found. Quantity not removed.");
+            }
+            else
+            {
+                stockitem.QuantityInStock -= quantityToRemove;
+            }
+            return stockitem;
+        }
+        public StockItem DeleteStockItem(int code)
+        {
+            StockItem stockitem = FindStockItem(code); // found the item
+            if(stockitem == null)
+            {
+                throw new Exception("Item has not been deleted because it cannot be found");
+            }
+            else if (stockitem.QuantityInStock > 0)
+            {
+                throw new Exception("Item cannot be deleted because quantity in stock is not zero");
+            }
+            else
+            {
+                StockItems.Remove(code); //NOT WORKING CODE
+            }
+            
             return stockitem;
         }
     }
