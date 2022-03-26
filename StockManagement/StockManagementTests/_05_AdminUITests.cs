@@ -123,54 +123,55 @@ namespace StockManagementTests
             TransactionManager tMgr = new TransactionManager();
             AdminUI ui = new AdminUI(stockMgr, tMgr);
 
+            stockMgr.CreateStockItem(2, "Pen", 2); // this is position 0 - it will make it work (because my dict starts from position 0 - otherwise it does not work)
             stockMgr.CreateStockItem(1, "Pen", 12);
             ui.RemoveQuantityFromAStockItem(1, 4);
 
             Assert.AreEqual(8, stockMgr.GetAllStockItems()[1].QuantityInStock);
         }
 
-        //[TestMethod]
-        //public void _10_RemoveQuantityFromAStockItem_calls_RecordQuantityRemoved_in_transaction_manager()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _10_RemoveQuantityFromAStockItem_calls_RecordQuantityRemoved_in_transaction_manager()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    stockMgr.CreateStockItem(1, "Pen", 9);
-        //    ui.RemoveQuantityFromAStockItem(1, 8);
+            stockMgr.CreateStockItem(1, "Pen", 9);
+            ui.RemoveQuantityFromAStockItem(1, 8);
 
-        //    Assert.IsInstanceOfType(
-        //        tMgr.GetAllTransactions()[0],
-        //        typeof(QuantityRemovedTransaction));
-        //}
+            Assert.IsInstanceOfType(
+                tMgr.GetAllTransactions()[0],
+                typeof(QuantityRemovedTransaction));
+        }
 
-        //[TestMethod]
-        //public void _11_RemoveQuantityFromAStockItem_returns_correct_results_list_when_stock_item_is_added()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _11_RemoveQuantityFromAStockItem_returns_correct_results_list_when_stock_item_is_added()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    stockMgr.CreateStockItem(1, "Pen", 22);
+            stockMgr.CreateStockItem(1, "Pen", 22);
 
-        //    List<string> expectedResults = new List<string>(1);
-        //    expectedResults.Add("Quantity removed from item: 1. New quantity in stock: 0");
+            List<string> expectedResults = new List<string>(1);
+            expectedResults.Add("Quantity removed from item: 1. New quantity in stock: 0");
 
-        //    CollectionAssert.AreEqual(expectedResults, ui.RemoveQuantityFromAStockItem(1, 22));
-        //}
+            CollectionAssert.AreEqual(expectedResults, ui.RemoveQuantityFromAStockItem(1, 22));
+        }
 
-        //[TestMethod]
-        //public void _12_RemoveQuantityFromAStockItem_returns_correct_results_list_when_stock_item_is_not_found()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _12_RemoveQuantityFromAStockItem_returns_correct_results_list_when_stock_item_is_not_found()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    List<string> expectedResults = new List<string>(1);
-        //    expectedResults.Add("Stock item 1 not found. Quantity not removed.");
+            List<string> expectedResults = new List<string>(1);
+            expectedResults.Add("Stock item 1 not found. Quantity not removed.");
 
-        //    CollectionAssert.AreEqual(expectedResults, ui.RemoveQuantityFromAStockItem(1, 4));
-        //}
+            CollectionAssert.AreEqual(expectedResults, ui.RemoveQuantityFromAStockItem(1, 4));
+        }
 
         //[TestMethod]
         //public void _13_DeleteAStockItem_calls_DeleteStockItem_in_stock_manager()
