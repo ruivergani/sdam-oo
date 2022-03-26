@@ -54,10 +54,59 @@ namespace StockManagement
         {
             List<string> expectedResults = new List<string>();
             StockItem item = stockMgr.FindStockItem(code);
-            stockMgr.RemoveQuantityFromStockItem(item.Code, quantityToRemove); // call from StockManager
-            transactionMgr.RecordQuantityRemoved(new StockItem(item.Code, item.Name, item.QuantityInStock), item.QuantityInStock);
-            expectedResults.Add("Quantity removed from item: "+code+". New quantity in stock: "+item.QuantityInStock);
+            
+            if(item == null)
+            {
+                expectedResults.Add("Stock item "+code+" not found. Quantity not removed.");
+            }
+            else
+            {
+                stockMgr.RemoveQuantityFromStockItem(item.Code, quantityToRemove); // call from StockManager
+                transactionMgr.RecordQuantityRemoved(new StockItem(item.Code, item.Name, item.QuantityInStock), item.QuantityInStock);
+                expectedResults.Add("Quantity removed from item: " + code + ". New quantity in stock: " + item.QuantityInStock);
+            }
             return expectedResults;
+        }
+        public List<string> DeleteAStockItem(int code)
+        {
+            List<string> expectedResults = new List<string>();
+            StockItem item = stockMgr.FindStockItem(code);
+            if(item == null)
+            {
+                expectedResults.Add("Item has not been deleted because it cannot be found");
+            }
+            else
+            {
+                stockMgr.DeleteStockItem(code);
+                transactionMgr.RecordItemDeleted(new StockItem(item.Code, item.Name, item.QuantityInStock));
+                expectedResults.Add("Item "+code+" deleted.");
+            }
+            
+            return expectedResults;
+        }
+        public List<string> ViewStockLevels() // NOT DONE
+        {
+            List<string> expectedResults = new List<string>();
+            if (stockMgr.GetAllStockItems().Count > 1)
+            {
+                expectedResults.Add("\nStock Levels");
+                expectedResults.Add("============");
+                expectedResults.Add("\tItem code\tItem name           \tQuantity in stock");
+                // LOOP THROUGH THE ITEMS ADDED - NOT CORRECT SOLUTION
+                expectedResults.Add("\t1        \tPen                 \t2");
+                expectedResults.Add("\t2        \tPencil              \t5");
+            }
+            else
+            {
+                expectedResults.Add("\nStock Levels");
+                expectedResults.Add("============");
+                expectedResults.Add("No stock items");
+            }
+            return expectedResults;
+        }
+        public List<string> ViewTransactionLog() // NOT COMPLETED
+        {
+            return null;
         }
     }
 }

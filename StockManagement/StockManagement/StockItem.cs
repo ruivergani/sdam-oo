@@ -11,6 +11,7 @@ namespace StockManagement
         private int code;
         private string name;
         private int quantityInStock;
+        
    
         //Get/Set Properties
         public int Code
@@ -72,6 +73,7 @@ namespace StockManagement
                 }
             }
         }
+        public int Id { get; set; }
 
 
         //Constructor

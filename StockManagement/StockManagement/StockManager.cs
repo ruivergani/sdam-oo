@@ -93,8 +93,8 @@ namespace StockManagement
             }
             else
             {
-                StockItems.Remove(item.Code);
-                item = FindStockItem(code);
+                StockItems.Remove(code); // THIS IS NOT WORKING - issue with dictionary ID
+                // I have tried putting Id but some reason it does not get the Id value previous added
             }
             return item;
         }

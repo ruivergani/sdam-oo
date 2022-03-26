@@ -186,87 +186,87 @@ namespace StockManagementTests
         //    Assert.AreEqual(0, stockMgr.GetAllStockItems().Count);
         //}
 
-        //[TestMethod]
-        //public void _14_DeleteAStockItem_calls_RecordItemDeleted_in_transaction_manager()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _14_DeleteAStockItem_calls_RecordItemDeleted_in_transaction_manager()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    stockMgr.CreateStockItem(1, "Pen", 2);
-        //    stockMgr.RemoveQuantityFromStockItem(1, 2);
-        //    ui.DeleteAStockItem(1);
+            stockMgr.CreateStockItem(1, "Pen", 2);
+            stockMgr.RemoveQuantityFromStockItem(1, 2);
+            ui.DeleteAStockItem(1);
 
-        //    Assert.IsInstanceOfType(
-        //        tMgr.GetAllTransactions()[0],
-        //        typeof(ItemDeletedTransaction));
-        //}
+            Assert.IsInstanceOfType(
+                tMgr.GetAllTransactions()[0],
+                typeof(ItemDeletedTransaction));
+        }
 
-        //[TestMethod]
-        //public void _15_DeleteAStockItem_returns_correct_results_list_when_stock_item_is_deleted()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _15_DeleteAStockItem_returns_correct_results_list_when_stock_item_is_deleted()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    stockMgr.CreateStockItem(1, "Pen", 2);
-        //    stockMgr.RemoveQuantityFromStockItem(1, 2);
+            stockMgr.CreateStockItem(1, "Pen", 2);
+            stockMgr.RemoveQuantityFromStockItem(1, 2);
 
-        //    List<string> expectedResults = new List<string>(1);
-        //    expectedResults.Add("Item 1 deleted.");
+            List<string> expectedResults = new List<string>(1);
+            expectedResults.Add("Item 1 deleted.");
 
-        //    CollectionAssert.AreEqual(expectedResults, ui.DeleteAStockItem(1));
-        //}
+            CollectionAssert.AreEqual(expectedResults, ui.DeleteAStockItem(1));
+        }
 
-        //[TestMethod]
-        //public void _16_DeleteAStockItem_returns_correct_results_list_when_non_existent_stock_item_is_deleted()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _16_DeleteAStockItem_returns_correct_results_list_when_non_existent_stock_item_is_deleted()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    List<string> expectedResults = new List<string>(1);
-        //    expectedResults.Add("Item has not been deleted because it cannot be found");
+            List<string> expectedResults = new List<string>(1);
+            expectedResults.Add("Item has not been deleted because it cannot be found");
 
-        //    CollectionAssert.AreEqual(expectedResults, ui.DeleteAStockItem(1));
-        //}
+            CollectionAssert.AreEqual(expectedResults, ui.DeleteAStockItem(1));
+        }
 
-        //[TestMethod]
-        //public void _17_ViewStockLevels_returns_correct_results_list_when_stock_item_has_been_added()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _17_ViewStockLevels_returns_correct_results_list_when_stock_item_has_been_added()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    stockMgr.CreateStockItem(1, "Pen", 2);
-        //    stockMgr.CreateStockItem(2, "Pencil", 5);
+            stockMgr.CreateStockItem(1, "Pen", 2);
+            stockMgr.CreateStockItem(2, "Pencil", 5);
 
-        //    List<string> expectedResults = new List<string>(1);
-        //    expectedResults.Add("\nStock Levels");
-        //    expectedResults.Add("============");
-        //    expectedResults.Add("\tItem code\tItem name           \tQuantity in stock");
-        //    expectedResults.Add("\t1        \tPen                 \t2");
-        //    expectedResults.Add("\t2        \tPencil              \t5");
+            List<string> expectedResults = new List<string>(1);
+            expectedResults.Add("\nStock Levels");
+            expectedResults.Add("============");
+            expectedResults.Add("\tItem code\tItem name           \tQuantity in stock");
+            expectedResults.Add("\t1        \tPen                 \t2");
+            expectedResults.Add("\t2        \tPencil              \t5");
 
-        //    CollectionAssert.AreEqual(expectedResults, ui.ViewStockLevels());
-        //}
+            CollectionAssert.AreEqual(expectedResults, ui.ViewStockLevels());
+        }
 
-        //[TestMethod]
-        //public void _18_ViewStockLevels_returns_correct_results_list_when_no_stock_items_have_been_added()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _18_ViewStockLevels_returns_correct_results_list_when_no_stock_items_have_been_added()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    List<string> expectedResults = new List<string>(1);
-        //    expectedResults.Add("\nStock Levels");
-        //    expectedResults.Add("============");
-        //    expectedResults.Add("No stock items");
+            List<string> expectedResults = new List<string>(1);
+            expectedResults.Add("\nStock Levels");
+            expectedResults.Add("============");
+            expectedResults.Add("No stock items");
 
-        //    CollectionAssert.AreEqual(expectedResults, ui.ViewStockLevels());
-        //}
+            CollectionAssert.AreEqual(expectedResults, ui.ViewStockLevels());
+        }
 
-        //[TestMethod]
+        [TestMethod]
         //public void _19_ViewTransactionLog_returns_correct_results_list_when_transactions_have_been_added()
         //{
         //    StockManager stockMgr = new StockManager();
@@ -282,16 +282,16 @@ namespace StockManagementTests
         //    expectedResults.Add("\nTransaction log");
         //    expectedResults.Add("===============");
         //    expectedResults.Add(
-        //        tMgr.GetAllTransactions()[0].TransactionDatetime.ToString("dd/MM/yyyy HH:mm") 
+        //        tMgr.GetAllTransactions()[0].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")
         //        + " Item added       - Item 1: Pen added. Quantity in stock: 2");
         //    expectedResults.Add(
-        //        tMgr.GetAllTransactions()[1].TransactionDatetime.ToString("dd/MM/yyyy HH:mm") 
+        //        tMgr.GetAllTransactions()[1].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")
         //        + " Quantity added   - Item 1: Pen. Quantity added: 3. New quantity in stock: 5");
         //    expectedResults.Add(
-        //        tMgr.GetAllTransactions()[2].TransactionDatetime.ToString("dd/MM/yyyy HH:mm") 
+        //        tMgr.GetAllTransactions()[2].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")
         //        + " Quantity removed - Item 1: Pen. Quantity removed: 5. New quantity in stock: 0");
         //    expectedResults.Add(
-        //        tMgr.GetAllTransactions()[3].TransactionDatetime.ToString("dd/MM/yyyy HH:mm") 
+        //        tMgr.GetAllTransactions()[3].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")
         //        + " Item deleted     - Item 1: Pen deleted.");
 
         //    CollectionAssert.AreEqual(expectedResults, ui.ViewTransactionLog());
