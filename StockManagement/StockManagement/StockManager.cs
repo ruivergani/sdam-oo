@@ -69,35 +69,34 @@ namespace StockManagement
         }
         public StockItem RemoveQuantityFromStockItem(int code, int quantityToRemove)
         {
-            StockItem stockitem;
-            stockitem = FindStockItem(code);
-            if(stockitem == null)
+            StockItem item = FindStockItem(code);
+            if(item == null)
             {
                 throw new Exception("Stock item "+code+" not found. Quantity not removed.");
             }
             else
             {
-                stockitem.QuantityInStock -= quantityToRemove;
+                item.QuantityInStock -= quantityToRemove;
             }
-            return stockitem;
+            return item;
         }
         public StockItem DeleteStockItem(int code)
         {
-            StockItem stockitem = FindStockItem(code); // found the item
-            if(stockitem == null)
+            StockItem item = FindStockItem(code); // found the item
+            if(item == null)
             {
                 throw new Exception("Item has not been deleted because it cannot be found");
             }
-            else if (stockitem.QuantityInStock > 0)
+            else if (item.QuantityInStock > 0)
             {
                 throw new Exception("Item cannot be deleted because quantity in stock is not zero");
             }
             else
             {
-                StockItems.Remove(code); //NOT WORKING CODE
+                StockItems.Remove(item.Code);
+                item = FindStockItem(code);
             }
-            
-            return stockitem;
+            return item;
         }
     }
 }

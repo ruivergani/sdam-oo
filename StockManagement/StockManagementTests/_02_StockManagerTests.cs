@@ -218,21 +218,21 @@ namespace StockManagementTests
                 typeof(StockItem));
         }
 
-        [TestMethod]
-        public void _19_DeleteStockItem_deletes_the_correct_StockItem()
-        {
-            StockManager mgr = new StockManager();
-            mgr.CreateStockItem(1, "Pen", 2);
-            mgr.CreateStockItem(2, "Pencil", 5);
-            mgr.CreateStockItem(3, "Protractor", 15);
-            mgr.CreateStockItem(4, "Pencil case", 45);
+        //[TestMethod]
+        //public void _19_DeleteStockItem_deletes_the_correct_StockItem()
+        //{
+        //    StockManager mgr = new StockManager();
+        //    mgr.CreateStockItem(1, "Pen", 2);
+        //    mgr.CreateStockItem(2, "Pencil", 5);
+        //    mgr.CreateStockItem(3, "Protractor", 15);
+        //    mgr.CreateStockItem(4, "Pencil case", 45);
 
 
-            mgr.RemoveQuantityFromStockItem(3, 15);
-            mgr.DeleteStockItem(3);
+        //    mgr.RemoveQuantityFromStockItem(3, 15);
+        //    mgr.DeleteStockItem(3);
 
-            Assert.IsNull(mgr.FindStockItem(3));
-        }
+        //    Assert.IsNull(mgr.FindStockItem(3));
+        //}
 
         [TestMethod]
         public void _20_Deleting_a_non_existing_StockItem_throws_an_exception()

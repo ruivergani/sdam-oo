@@ -7,70 +7,70 @@ namespace StockManagementTests
     [TestClass]
     public class _05_AdminUITests
     {
-        //[TestMethod]
-        //public void _01_AddANewItemOfStock_calls_CreateStockItem_in_stock_manager()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _01_AddANewItemOfStock_calls_CreateStockItem_in_stock_manager()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    ui.AddANewItemOfStock(1, "Pen", 2);
-        //    Assert.AreEqual(1, stockMgr.GetAllStockItems().Count);
-        //}
+            ui.AddANewItemOfStock(1, "Pen", 2);
+            Assert.AreEqual(1, stockMgr.GetAllStockItems().Count);
+        }
 
-        //[TestMethod]
-        //public void _02_AddANewItemOfStock_calls_RecordItemAdded_in_transaction_manager()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _02_AddANewItemOfStock_calls_RecordItemAdded_in_transaction_manager()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    ui.AddANewItemOfStock(1, "Pen", 2);
+            ui.AddANewItemOfStock(1, "Pen", 2);
 
-        //    Assert.IsInstanceOfType(
-        //        tMgr.GetAllTransactions()[0],
-        //        typeof(ItemAddedTransaction));
-        //}
+            Assert.IsInstanceOfType(
+                tMgr.GetAllTransactions()[0],
+                typeof(ItemAddedTransaction));
+        }
 
-        //[TestMethod]
-        //public void _03_AddANewItemOfStock_returns_correct_results_list_when_stock_item_is_added()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _03_AddANewItemOfStock_returns_correct_results_list_when_stock_item_is_added()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    List<string> expectedResults = new List<string>(1);
-        //    expectedResults.Add("Item added. Item code: 1");
+            List<string> expectedResults = new List<string>(1);
+            expectedResults.Add("Item added. Item code: 1");
 
-        //    CollectionAssert.AreEqual(expectedResults, ui.AddANewItemOfStock(1, "Pen", 2));
-        //}
+            CollectionAssert.AreEqual(expectedResults, ui.AddANewItemOfStock(1, "Pen", 2));
+        }
 
-        //[TestMethod]
-        //public void _04_AddANewItemOfStock_returns_correct_results_list_when_existing_stock_item_is_added()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
-        //    ui.AddANewItemOfStock(1, "Pen", 2);
+        [TestMethod]
+        public void _04_AddANewItemOfStock_returns_correct_results_list_when_existing_stock_item_is_added()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
+            ui.AddANewItemOfStock(1, "Pen", 2);
 
-        //    List<string> expectedResults = new List<string>(1);
-        //    expectedResults.Add("Item code 1 already exists. Item not added.");
+            List<string> expectedResults = new List<string>(1);
+            expectedResults.Add("Item code 1 already exists. Item not added.");
 
-        //    CollectionAssert.AreEqual(expectedResults, ui.AddANewItemOfStock(1, "Pen", 2));
-        //}
+            CollectionAssert.AreEqual(expectedResults, ui.AddANewItemOfStock(1, "Pen", 2));
+        }
 
-        //[TestMethod]
-        //public void _05_AddQuantityToAStockItem_calls_AddQuantityToStockItem_in_stock_manager()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _05_AddQuantityToAStockItem_calls_AddQuantityToStockItem_in_stock_manager()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    stockMgr.CreateStockItem(1, "Pen", 2);
-        //    ui.AddQuantityToAStockItem(1, 4);
+            stockMgr.CreateStockItem(1, "Pen", 2);
+            ui.AddQuantityToAStockItem(1, 4);
 
-        //    Assert.AreEqual(6, stockMgr.GetAllStockItems()[1].QuantityInStock);
-        //}
+            Assert.AreEqual(6, stockMgr.GetAllStockItems()[1].QuantityInStock);
+        }
 
         //[TestMethod]
         //public void _06_AddQuantityToAStockItem_calls_RecordQuantityAdded_in_transaction_manager()
