@@ -8,19 +8,14 @@ namespace StockManagement
     {
 
         //Attributes
-        SortedDictionary<int, StockItem> StockItems
-            = new SortedDictionary<int, StockItem>();
-        private static int nextId = 1;
+        SortedDictionary<int, StockItem> StockItems { get; set; }
+        private static int nextId = 0;
         public int Id { get; set; }
 
-        public StockManager(SortedDictionary<int, StockItem> stockItems)
+        public  StockManager()
         {
-            Id = nextId++;
-            StockItems = stockItems;
-        }
-        public StockManager()
-        {
-
+            Id = nextId; // Set value to 0
+            StockItems = new SortedDictionary<int, StockItem>();
         }
 
         //Methods
@@ -28,29 +23,22 @@ namespace StockManagement
         {
             return StockItems;
         }
-        internal partial class Dictionary<TKey, TValue> : System.Collections.Generic.Dictionary<TKey, TValue>
-        {
-            internal new virtual void Add(TKey key, TValue value)
-            {
-                if (base.ContainsKey(key))
-                {
-                    throw new Exception();
-                }
-                else
-                {
-                    base.Add(key, value);
-                }
-            }
-        }
+
         public StockItem CreateStockItem(int code, string name, int quantityInStock)
         {
-            StockItem stockitem = new StockItem(code, name, quantityInStock); // Create new instance object
-            StockItems.Add(Id, stockitem); //Dictionary add key-value
-            Id++;
-            //StockItem item = FindStockItem(code);
-            // The Add method throws an exception if the new key is already in the dictionary.
+            StockItem item = FindStockItem(code);
 
-            return stockitem;
+            if (item == null) // means if does not already exists
+            {
+                item = new StockItem(code, name, quantityInStock);
+                StockItems.Add(Id, item);
+                Id++;
+            }
+            else
+            {
+                throw new Exception("Item code "+code+" already exists. Item not added.");
+            }
+            return item;
         }
         public StockItem FindStockItem(int code)
         {
