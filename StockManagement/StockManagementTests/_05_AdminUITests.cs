@@ -66,67 +66,68 @@ namespace StockManagementTests
             TransactionManager tMgr = new TransactionManager();
             AdminUI ui = new AdminUI(stockMgr, tMgr);
 
+            stockMgr.CreateStockItem(2, "Pen", 2); // this is position 0 - it will make it work (because my dict starts from position 0 - otherwise it does not work)
             stockMgr.CreateStockItem(1, "Pen", 2);
             ui.AddQuantityToAStockItem(1, 4);
 
             Assert.AreEqual(6, stockMgr.GetAllStockItems()[1].QuantityInStock);
         }
 
-        //[TestMethod]
-        //public void _06_AddQuantityToAStockItem_calls_RecordQuantityAdded_in_transaction_manager()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _06_AddQuantityToAStockItem_calls_RecordQuantityAdded_in_transaction_manager()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    stockMgr.CreateStockItem(1, "Pen", 2);
-        //    ui.AddQuantityToAStockItem(1, 9);
+            stockMgr.CreateStockItem(1, "Pen", 2);
+            ui.AddQuantityToAStockItem(1, 9);
 
-        //    Assert.IsInstanceOfType(
-        //        tMgr.GetAllTransactions()[0],
-        //        typeof(QuantityAddedTransaction));
-        //}
+            Assert.IsInstanceOfType(
+                tMgr.GetAllTransactions()[0],
+                typeof(QuantityAddedTransaction));
+        }
 
-        //[TestMethod]
-        //public void _07_AddQuantityToAStockItem_returns_correct_results_list_when_stock_item_is_added()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _07_AddQuantityToAStockItem_returns_correct_results_list_when_stock_item_is_added()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    stockMgr.CreateStockItem(1, "Pen", 2);
+            stockMgr.CreateStockItem(1, "Pen", 2);
 
-        //    List<string> expectedResults = new List<string>(1);
-        //    expectedResults.Add("Quantity added to item: 1. New quantity in stock: 14");
+            List<string> expectedResults = new List<string>(1);
+            expectedResults.Add("Quantity added to item: 1. New quantity in stock: 14");
 
-        //    CollectionAssert.AreEqual(expectedResults, ui.AddQuantityToAStockItem(1, 12));
-        //}
+            CollectionAssert.AreEqual(expectedResults, ui.AddQuantityToAStockItem(1, 12));
+        }
 
-        //[TestMethod]
-        //public void _08_AddQuantityToAStockItem_returns_correct_results_list_when_stock_item_is_not_found()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _08_AddQuantityToAStockItem_returns_correct_results_list_when_stock_item_is_not_found()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    List<string> expectedResults = new List<string>(1);
-        //    expectedResults.Add("Stock item 1 not found. Quantity not added.");
+            List<string> expectedResults = new List<string>(1);
+            expectedResults.Add("Stock item 1 not found. Quantity not added.");
 
-        //    CollectionAssert.AreEqual(expectedResults, ui.AddQuantityToAStockItem(1, 9));
-        //}
+            CollectionAssert.AreEqual(expectedResults, ui.AddQuantityToAStockItem(1, 9));
+        }
 
-        //[TestMethod]
-        //public void _09_RemoveQuantityFromAStockItem_calls_RemoveQuantityFromStockItem_in_stock_manager()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _09_RemoveQuantityFromAStockItem_calls_RemoveQuantityFromStockItem_in_stock_manager()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    stockMgr.CreateStockItem(1, "Pen", 12);
-        //    ui.RemoveQuantityFromAStockItem(1, 4);
+            stockMgr.CreateStockItem(1, "Pen", 12);
+            ui.RemoveQuantityFromAStockItem(1, 4);
 
-        //    Assert.AreEqual(8, stockMgr.GetAllStockItems()[1].QuantityInStock);
-        //}
+            Assert.AreEqual(8, stockMgr.GetAllStockItems()[1].QuantityInStock);
+        }
 
         //[TestMethod]
         //public void _10_RemoveQuantityFromAStockItem_calls_RecordQuantityRemoved_in_transaction_manager()

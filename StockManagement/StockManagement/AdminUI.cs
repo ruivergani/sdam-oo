@@ -33,5 +33,27 @@ namespace StockManagement
             
             return expectedResults;
         }
+        public List<string> AddQuantityToAStockItem(int code, int quantityToAdd)
+        {
+            List<string> expectedResults = new List<string>();
+            StockItem item = stockMgr.FindStockItem(code);
+            if(item == null) // item can not be found
+            {
+                expectedResults.Add("Stock item " + code + " not found. Quantity not added.");
+            }
+            else
+            {
+                stockMgr.AddQuantityToStockItem(code, quantityToAdd); // call from StockManager
+                transactionMgr.RecordQuantityAdded(new StockItem(item.Code, item.Name, item.QuantityInStock), quantityToAdd); // call from TransactionManager
+                expectedResults.Add("Quantity added to item: " + code + ". New quantity in stock: " + item.QuantityInStock);
+            }
+            
+            return expectedResults;
+        }
+        public List<string> RemoveQuantityFromAStockItem(int code, int quantityToRemove)
+        {
+            
+            return null;
+        }
     }
 }
