@@ -8,13 +8,10 @@ namespace StockManagement
     {
 
         //Attributes
-        SortedDictionary<int, StockItem> StockItems { get; set; }
-        private static int nextId = 0;
-        public int Id { get; set; }
+        public SortedDictionary<int, StockItem> StockItems { get; private set; }
 
         public  StockManager()
         {
-            Id = nextId; // Set value to 0
             StockItems = new SortedDictionary<int, StockItem>();
         }
 
@@ -27,23 +24,18 @@ namespace StockManagement
         public StockItem CreateStockItem(int code, string name, int quantityInStock)
         {
             StockItem item = FindStockItem(code);
-
             if (item == null) // means if does not already exists
             {
                 item = new StockItem(code, name, quantityInStock);
-                StockItems.Add(Id, item);
-                Id++;
+                StockItems.Add(item.Code, item); // Issue with the code using ID - basically the dictionary does not accept object value to be as key of the dictionary
+                return item;
             }
-            else
-            {
-                throw new Exception("Item code "+code+" already exists. Item not added.");
-            }
-            return item;
+            throw new Exception("Item code "+code+" already exists. Item not added.");
         }
         public StockItem FindStockItem(int code)
         {
             StockItem item = null; // Return null if does not exist
-            for (int i = 0; i < StockItems.Count; i++) // Reading through the Dictionary
+            for (int i = 0; i < StockItems.Count && item == null; i++) // Reading through the Dictionary
             {
                 if(StockItems[i].Code == code) // match the code of the product
                 {
@@ -93,7 +85,7 @@ namespace StockManagement
             }
             else
             {
-                StockItems.Remove(code); // THIS IS NOT WORKING - issue with dictionary ID
+                StockItems.Remove(item.Code); // THIS IS NOT WORKING - issue with dictionary ID
                 // I have tried putting Id but some reason it does not get the Id value previous added
             }
             return item;

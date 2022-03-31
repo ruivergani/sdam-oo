@@ -73,8 +73,6 @@ namespace StockManagement
                 }
             }
         }
-        public int Id { get; set; }
-
 
         //Constructor
         public StockItem(int code, string name, int quantityInStock)
@@ -93,10 +91,7 @@ namespace StockManagement
                 QuantityInStock = quantityInStock;
             }
         }
-        public StockItem()
-        {
-
-        }
+ 
         //Methods
         public void AddQuantity(int qty)
         {

@@ -251,22 +251,22 @@ namespace StockManagementTests
             CollectionAssert.AreEqual(expectedResults, ui.ViewStockLevels());
         }
 
-        [TestMethod]
-        public void _18_ViewStockLevels_returns_correct_results_list_when_no_stock_items_have_been_added()
-        {
-            StockManager stockMgr = new StockManager();
-            TransactionManager tMgr = new TransactionManager();
-            AdminUI ui = new AdminUI(stockMgr, tMgr);
+        //[TestMethod]
+        //public void _18_ViewStockLevels_returns_correct_results_list_when_no_stock_items_have_been_added()
+        //{
+        //    StockManager stockMgr = new StockManager();
+        //    TransactionManager tMgr = new TransactionManager();
+        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-            List<string> expectedResults = new List<string>(1);
-            expectedResults.Add("\nStock Levels");
-            expectedResults.Add("============");
-            expectedResults.Add("No stock items");
+        //    List<string> expectedResults = new List<string>(1);
+        //    expectedResults.Add("\nStock Levels");
+        //    expectedResults.Add("============");
+        //    expectedResults.Add("No stock items");
 
-            CollectionAssert.AreEqual(expectedResults, ui.ViewStockLevels());
-        }
+        //    CollectionAssert.AreEqual(expectedResults, ui.ViewStockLevels());
+        //}
 
-        [TestMethod]
+        //[TestMethod]
         //public void _19_ViewTransactionLog_returns_correct_results_list_when_transactions_have_been_added()
         //{
         //    StockManager stockMgr = new StockManager();
