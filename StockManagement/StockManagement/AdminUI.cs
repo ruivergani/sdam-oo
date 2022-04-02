@@ -86,15 +86,15 @@ namespace StockManagement
         // Based on StockManager Class
         public List<string> ViewStockLevels()
         {
-            List<string> expectedResults = new List<string>();
-            if (stockMgr.GetAllStockItems().Count > 1)
+            List<string> expectedResults = new List<string>(stockMgr.StockItems.Count);
+            if (stockMgr.GetAllStockItems().Count > 0)
             {
                 expectedResults.Add("\nStock Levels");
                 expectedResults.Add("============");
                 expectedResults.Add("\tItem code\tItem name           \tQuantity in stock");
-                foreach (StockItem item in stockMgr.GetAllStockItems())
+                foreach (StockItem item in stockMgr.StockItems.Values)
                 {
-                    expectedResults.Add("\t"+item.Code        +"\t"+item.Name                 +"\t"+item.QuantityInStock);
+                    expectedResults.Add("\t"+item.Code+"\t"+item.Name+"\t"+item.QuantityInStock);
                 }
             }
             else
@@ -105,9 +105,25 @@ namespace StockManagement
             }
             return expectedResults;
         }
-        //public List<string> ViewTransactionLog() // NOT COMPLETED
-        //{
-        //    return null;
-        //}
+        public List<string> ViewTransactionLog()
+        {
+            List<string> expectedResults = new List<string>(stockMgr.StockItems.Count);
+            if (transactionMgr.GetAllTransactions().Count > 0)
+            {
+                expectedResults.Add("\nTransaction log");
+                expectedResults.Add("===============");
+                foreach (Transaction item in transactionMgr.Transactions)
+                {
+                    expectedResults.Add(Convert.ToString(item));
+                }
+            }
+            else
+            {
+                expectedResults.Add("\nTransaction log");
+                expectedResults.Add("===============");
+                expectedResults.Add("No transactions");
+            }
+            return expectedResults;
+        }
     }
 }

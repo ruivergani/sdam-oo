@@ -6,21 +6,17 @@ namespace StockManagement
 {
     public class StockManager
     {
-
         //Attributes
         public SortedDictionary<int, StockItem> StockItems { get; private set; }
-
         public  StockManager()
         {
             StockItems = new SortedDictionary<int, StockItem>();
         }
-
         //Methods
         public SortedDictionary<int, StockItem> GetAllStockItems()
         {
             return StockItems;
         }
-
         public StockItem CreateStockItem(int code, string name, int quantityInStock)
         {
             StockItem item = FindStockItem(code);

@@ -25,10 +25,8 @@ namespace StockManagement
 
         public override string ToString()
         {
-            return string.Format(
-                TransactionDatetime.ToString("dd/MM/yyyy HH:mm") +
-                " "+TransactionName+" - Item "+StockItemCode+": "+StockItemName+". "+TransactionName+": 2. New quantity in stock: "+NewQuantityInStock
-            );
+            return string.Format(TransactionDatetime.ToString("dd/MM/yyyy HH:mm") +
+                " "+TransactionName+" - Item "+StockItemCode+": "+StockItemName+". "+TransactionName+": "+QuantityRemoved+". New quantity in stock: "+NewQuantityInStock);
         }
     }
 }

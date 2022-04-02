@@ -245,71 +245,71 @@ namespace StockManagementTests
             expectedResults.Add("\nStock Levels");
             expectedResults.Add("============");
             expectedResults.Add("\tItem code\tItem name           \tQuantity in stock");
-            expectedResults.Add("\t1        \tPen                 \t2");
-            expectedResults.Add("\t2        \tPencil              \t5");
+            expectedResults.Add("\t1\tPen\t2");
+            expectedResults.Add("\t2\tPencil\t5");
 
             CollectionAssert.AreEqual(expectedResults, ui.ViewStockLevels());
         }
 
-        //[TestMethod]
-        //public void _18_ViewStockLevels_returns_correct_results_list_when_no_stock_items_have_been_added()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _18_ViewStockLevels_returns_correct_results_list_when_no_stock_items_have_been_added()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    List<string> expectedResults = new List<string>(1);
-        //    expectedResults.Add("\nStock Levels");
-        //    expectedResults.Add("============");
-        //    expectedResults.Add("No stock items");
+            List<string> expectedResults = new List<string>(1);
+            expectedResults.Add("\nStock Levels");
+            expectedResults.Add("============");
+            expectedResults.Add("No stock items");
 
-        //    CollectionAssert.AreEqual(expectedResults, ui.ViewStockLevels());
-        //}
+            CollectionAssert.AreEqual(expectedResults, ui.ViewStockLevels());
+        }
 
-        //[TestMethod]
-        //public void _19_ViewTransactionLog_returns_correct_results_list_when_transactions_have_been_added()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _19_ViewTransactionLog_returns_correct_results_list_when_transactions_have_been_added()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    ui.AddANewItemOfStock(1, "Pen", 2);
-        //    ui.AddQuantityToAStockItem(1, 3);
-        //    ui.RemoveQuantityFromAStockItem(1, 5);
-        //    ui.DeleteAStockItem(1);
+            ui.AddANewItemOfStock(1, "Pen", 2);
+            ui.AddQuantityToAStockItem(1, 3);
+            ui.RemoveQuantityFromAStockItem(1, 5);
+            ui.DeleteAStockItem(1);
 
-        //    List<string> expectedResults = new List<string>(1);
-        //    expectedResults.Add("\nTransaction log");
-        //    expectedResults.Add("===============");
-        //    expectedResults.Add(
-        //        tMgr.GetAllTransactions()[0].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")
-        //        + " Item added       - Item 1: Pen added. Quantity in stock: 2");
-        //    expectedResults.Add(
-        //        tMgr.GetAllTransactions()[1].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")
-        //        + " Quantity added   - Item 1: Pen. Quantity added: 3. New quantity in stock: 5");
-        //    expectedResults.Add(
-        //        tMgr.GetAllTransactions()[2].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")
-        //        + " Quantity removed - Item 1: Pen. Quantity removed: 5. New quantity in stock: 0");
-        //    expectedResults.Add(
-        //        tMgr.GetAllTransactions()[3].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")
-        //        + " Item deleted     - Item 1: Pen deleted.");
+            List<string> expectedResults = new List<string>(1);
+            expectedResults.Add("\nTransaction log");
+            expectedResults.Add("===============");
+            expectedResults.Add(
+                tMgr.GetAllTransactions()[0].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")
+                + " Item added       - Item 1: Pen added. Quantity in stock: 2");
+            expectedResults.Add(
+                tMgr.GetAllTransactions()[1].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")
+                + " Quantity added   - Item 1: Pen. Quantity added: 3. New quantity in stock: 5");
+            expectedResults.Add(
+                tMgr.GetAllTransactions()[2].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")
+                + " Quantity removed - Item 1: Pen. Quantity removed: 5. New quantity in stock: 0");
+            expectedResults.Add(
+                tMgr.GetAllTransactions()[3].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")
+                + " Item deleted     - Item 1: Pen deleted.");
 
-        //    CollectionAssert.AreEqual(expectedResults, ui.ViewTransactionLog());
-        //}
+            CollectionAssert.AreEqual(expectedResults, ui.ViewTransactionLog());
+        }
 
-        //[TestMethod]
-        //public void _20_ViewTransaction_returns_correct_results_list_when_no_transactions_have_been_added()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _20_ViewTransaction_returns_correct_results_list_when_no_transactions_have_been_added()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    List<string> expectedResults = new List<string>(1);
-        //    expectedResults.Add("\nTransaction log");
-        //    expectedResults.Add("===============");
-        //    expectedResults.Add("No transactions");
+            List<string> expectedResults = new List<string>(1);
+            expectedResults.Add("\nTransaction log");
+            expectedResults.Add("===============");
+            expectedResults.Add("No transactions");
 
-        //    CollectionAssert.AreEqual(expectedResults, ui.ViewTransactionLog());
-        //}
+            CollectionAssert.AreEqual(expectedResults, ui.ViewTransactionLog());
+        }
     }
 }
