@@ -35,14 +35,11 @@ namespace StockManagement
         public StockItem FindStockItem(int code)
         {
             StockItem item = null; // Return null if does not exist
-            for (int i = 0; i < StockItems.Count && item == null; i++) // Reading through the Dictionary
+            if (StockItems.ContainsKey(code)) // Reading through the Dictionary (automated code)
             {
-                if(StockItems[i].Code == code) // match the code of the product
-                {
-                    item = StockItems[i]; //Override the null
-                }
+                return StockItems[code]; // return the value based on the key = code
             }
-            return item; // return product found
+            return item; // return product as null if not found
         }
         public StockItem AddQuantityToStockItem(int code, int quantityToAdd)
         {
@@ -85,8 +82,7 @@ namespace StockManagement
             }
             else
             {
-                StockItems.Remove(item.Code); // THIS IS NOT WORKING - issue with dictionary ID
-                // I have tried putting Id but some reason it does not get the Id value previous added
+                StockItems.Remove(item.Code); // item code
             }
             return item;
         }
