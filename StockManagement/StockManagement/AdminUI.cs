@@ -6,8 +6,8 @@ namespace StockManagement
 {
     public class AdminUI
     {
-        public StockManager stockMgr { get; set; }
-        public TransactionManager transactionMgr { get; set; }
+        public StockManager stockMgr { get; private set; }
+        public TransactionManager transactionMgr { get; private set; }
         // Constructor
         public AdminUI(StockManager stockMgr, TransactionManager transactionMgr)
         {
@@ -54,7 +54,6 @@ namespace StockManagement
         {
             List<string> expectedResults = new List<string>();
             StockItem item = stockMgr.FindStockItem(code);
-            
             if(item == null)
             {
                 expectedResults.Add("Stock item "+code+" not found. Quantity not removed.");
@@ -84,7 +83,8 @@ namespace StockManagement
             
             return expectedResults;
         }
-        public List<string> ViewStockLevels() // NOT DONE
+        // Based on StockManager Class
+        public List<string> ViewStockLevels()
         {
             List<string> expectedResults = new List<string>();
             if (stockMgr.GetAllStockItems().Count > 1)
@@ -92,9 +92,10 @@ namespace StockManagement
                 expectedResults.Add("\nStock Levels");
                 expectedResults.Add("============");
                 expectedResults.Add("\tItem code\tItem name           \tQuantity in stock");
-                // LOOP THROUGH THE ITEMS ADDED - NOT CORRECT SOLUTION
-                expectedResults.Add("\t1        \tPen                 \t2");
-                expectedResults.Add("\t2        \tPencil              \t5");
+                foreach (StockItem item in stockMgr.GetAllStockItems())
+                {
+                    expectedResults.Add("\t"+item.Code        +"\t"+item.Name                 +"\t"+item.QuantityInStock);
+                }
             }
             else
             {
@@ -104,9 +105,9 @@ namespace StockManagement
             }
             return expectedResults;
         }
-        public List<string> ViewTransactionLog() // NOT COMPLETED
-        {
-            return null;
-        }
+        //public List<string> ViewTransactionLog() // NOT COMPLETED
+        //{
+        //    return null;
+        //}
     }
 }

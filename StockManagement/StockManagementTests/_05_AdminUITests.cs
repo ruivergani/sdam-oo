@@ -173,18 +173,18 @@ namespace StockManagementTests
             CollectionAssert.AreEqual(expectedResults, ui.RemoveQuantityFromAStockItem(1, 4));
         }
 
-        //[TestMethod]
-        //public void _13_DeleteAStockItem_calls_DeleteStockItem_in_stock_manager()
-        //{
-        //    StockManager stockMgr = new StockManager();
-        //    TransactionManager tMgr = new TransactionManager();
-        //    AdminUI ui = new AdminUI(stockMgr, tMgr);
+        [TestMethod]
+        public void _13_DeleteAStockItem_calls_DeleteStockItem_in_stock_manager()
+        {
+            StockManager stockMgr = new StockManager();
+            TransactionManager tMgr = new TransactionManager();
+            AdminUI ui = new AdminUI(stockMgr, tMgr);
 
-        //    stockMgr.CreateStockItem(1, "Pen", 2);
-        //    stockMgr.RemoveQuantityFromStockItem(1, 2);
-        //    ui.DeleteAStockItem(1);
-        //    Assert.AreEqual(0, stockMgr.GetAllStockItems().Count);
-        //}
+            stockMgr.CreateStockItem(1, "Pen", 2);
+            stockMgr.RemoveQuantityFromStockItem(1, 2);
+            ui.DeleteAStockItem(1);
+            Assert.AreEqual(0, stockMgr.GetAllStockItems().Count);
+        }
 
         [TestMethod]
         public void _14_DeleteAStockItem_calls_RecordItemDeleted_in_transaction_manager()
