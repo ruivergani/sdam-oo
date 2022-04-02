@@ -27,7 +27,7 @@ namespace StockManagement
         {
             return string.Format(
                 TransactionDatetime.ToString("dd/MM/yyyy HH:mm") +
-                " "+TransactionName+"   - Item " + StockItemCode+": "+StockItemName+". Quantity added: "+QuantityAdded+". New quantity in stock: "+NewQuantityInStock);
+                " "+TransactionName+"   - Item "+StockItemCode+": "+StockItemName+". Quantity added: "+QuantityAdded+". New quantity in stock: "+NewQuantityInStock);
         }
     }
 }

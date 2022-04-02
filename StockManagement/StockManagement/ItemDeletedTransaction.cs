@@ -23,8 +23,7 @@ namespace StockManagement
         {
             return string.Format(
                 TransactionDatetime.ToString("dd/MM/yyyy HH:mm") +
-                " "+TransactionName+"     - Item "+StockItemCode+": "+StockItemName+" deleted."
-            );
+                " "+TransactionName+"     - Item "+StockItemCode+": "+StockItemName+" deleted.");
         }
     }
 }

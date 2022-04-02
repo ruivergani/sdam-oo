@@ -107,7 +107,7 @@ namespace StockManagement
         }
         public List<string> ViewTransactionLog()
         {
-            List<string> expectedResults = new List<string>(stockMgr.StockItems.Count);
+            List<string> expectedResults = new List<string>(transactionMgr.Transactions.Count);
             if (transactionMgr.GetAllTransactions().Count > 0)
             {
                 expectedResults.Add("\nTransaction log");

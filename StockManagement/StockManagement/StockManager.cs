@@ -78,7 +78,7 @@ namespace StockManagement
             }
             else
             {
-                StockItems.Remove(item.Code); // item code
+                StockItems.Remove(code); // item code
             }
             return item;
         }
