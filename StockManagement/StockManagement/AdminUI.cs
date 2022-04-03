@@ -61,7 +61,7 @@ namespace StockManagement
             else
             {
                 stockMgr.RemoveQuantityFromStockItem(item.Code, quantityToRemove); // call from StockManager
-                transactionMgr.RecordQuantityRemoved(new StockItem(item.Code, item.Name, item.QuantityInStock), item.QuantityInStock);
+                transactionMgr.RecordQuantityRemoved(new StockItem(item.Code, item.Name, item.QuantityInStock), quantityToRemove);
                 expectedResults.Add("Quantity removed from item: " + code + ". New quantity in stock: " + item.QuantityInStock);
             }
             return expectedResults;

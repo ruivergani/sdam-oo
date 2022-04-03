@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace StockManagement
 {
@@ -53,13 +54,13 @@ namespace StockManagement
         private static void DisplayMenu()
         {
             Console.WriteLine("\n");
-            Console.WriteLine(VIEW_TRANSACTION_LOG + " .View Transaction Log");
-            Console.WriteLine(VIEW_STOCK_LEVELS + " .View Stock Levels");
-            Console.WriteLine(ADD_NEW_ITEM_OF_STOCK + " .Add a new item of stock");
-            Console.WriteLine(ADD_QUANTITY_TO_STOCK_ITEM + " .Add quantity to stock item");
-            Console.WriteLine(DELETE_STOCK_ITEM + " .Delete stock item");
-            Console.WriteLine(DELETE_QUANTITY_FROM_STOCK_ITEM + " .Delete quantity from stock item");
-            Console.WriteLine(EXIT + " .Exit");
+            Console.WriteLine(VIEW_TRANSACTION_LOG + " - View Transaction Log");
+            Console.WriteLine(VIEW_STOCK_LEVELS + " - View Stock Levels");
+            Console.WriteLine(ADD_NEW_ITEM_OF_STOCK + " - Add a new item of stock");
+            Console.WriteLine(ADD_QUANTITY_TO_STOCK_ITEM + " - Add quantity to stock item");
+            Console.WriteLine(DELETE_STOCK_ITEM + " - Delete stock item");
+            Console.WriteLine(DELETE_QUANTITY_FROM_STOCK_ITEM + " - Delete quantity from stock item");
+            Console.WriteLine(EXIT + " - Exit");
             Console.WriteLine("\n"); 
         }
         private static int ReadInteger(string prompt)
@@ -72,30 +73,39 @@ namespace StockManagement
             Console.Write(prompt);
             return Convert.ToString(Console.ReadLine());
         }
+        public static void DisplayResults(List<string> results)
+        {
 
+        }
         public static void AddANewItemOfStock()
         {
             // add new item of stock
+            Console.WriteLine("Add new item of stock");
         }
         public static void AddQuantityToAStockItem()
         {
             // add quantity to stock item
+            Console.WriteLine("Add quantity to a stock item");
         }
         public static void DeleteAStockItem()
         {
             // delete a stock Item
+            Console.WriteLine("Delete a Stock Item");
         }
         public static void RemoveQuantityFromAStockItem()
         {
             // remove quantity from stock item
+            Console.WriteLine("Remove a Stock Item");
         }
         public static void ViewStockLevels()
         {
             // view stock levels
+            Console.WriteLine("View stock levels");
         }
         public static void ViewTransactionLog()
         {
             // view transaction log
+            Console.WriteLine("View transaction log");
         }
     }
 }
