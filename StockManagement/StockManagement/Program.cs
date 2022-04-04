@@ -9,10 +9,14 @@ namespace StockManagement
         private const int ADD_QUANTITY_TO_STOCK_ITEM = 2;
         private const int DELETE_STOCK_ITEM = 3;
         private const int DELETE_QUANTITY_FROM_STOCK_ITEM = 4;
-        private const int VIEW_TRANSACTION_LOG = 5;
-        private const int VIEW_STOCK_LEVELS = 6;
+        private const int VIEW_STOCK_LEVELS = 5;
+        private const int VIEW_TRANSACTION_LOG = 6;
         private const int EXIT = 7;
-        private static AdminUI adminUI;
+
+        private static readonly StockManager stockMgr = new StockManager();
+        private static readonly TransactionManager transactionMgr = new TransactionManager();
+        static readonly AdminUI adminUI = new AdminUI(stockMgr, transactionMgr);
+
         public static void Main(string[] args)
         {
             DisplayMenu();
@@ -21,12 +25,6 @@ namespace StockManagement
             {
                 switch (choice)
                 {
-                    case VIEW_TRANSACTION_LOG:
-                        ViewTransactionLog();
-                        break;
-                    case VIEW_STOCK_LEVELS:
-                        ViewStockLevels();
-                        break;
                     case ADD_NEW_ITEM_OF_STOCK:
                         AddANewItemOfStock();
                         break;
@@ -38,6 +36,12 @@ namespace StockManagement
                         break;
                     case DELETE_QUANTITY_FROM_STOCK_ITEM:
                         RemoveQuantityFromAStockItem();
+                        break;
+                    case VIEW_STOCK_LEVELS:
+                        ViewStockLevels();
+                        break;
+                    case VIEW_TRANSACTION_LOG:
+                        ViewTransactionLog();
                         break;
                     default:
                         Console.WriteLine("\nERROR: Option not recognised. Please try again.");
@@ -56,8 +60,8 @@ namespace StockManagement
             Console.WriteLine(ADD_QUANTITY_TO_STOCK_ITEM + " - Add quantity to stock item");
             Console.WriteLine(DELETE_STOCK_ITEM + " - Delete stock item");
             Console.WriteLine(DELETE_QUANTITY_FROM_STOCK_ITEM + " - Delete quantity from stock item");
-            Console.WriteLine(VIEW_TRANSACTION_LOG + " - View Transaction Log");
             Console.WriteLine(VIEW_STOCK_LEVELS + " - View Stock Levels");
+            Console.WriteLine(VIEW_TRANSACTION_LOG + " - View Transaction Log");
             Console.WriteLine(EXIT + " - Exit");
             Console.WriteLine("\n"); 
         }
@@ -81,13 +85,10 @@ namespace StockManagement
         }
         public static void DisplayResults(List<string> results)
         {
-
+           
         }
         public static void AddANewItemOfStock()
         {
-            StockManager stockMgr = new StockManager();
-            TransactionManager transactionMgr = new TransactionManager();
-            adminUI = new AdminUI(stockMgr, transactionMgr);
             int code = ReadInteger("\nCode");
             string name = ReadString("Name");
             int quantityStock = ReadInteger("Quantity in Stock");
@@ -102,28 +103,50 @@ namespace StockManagement
         }
         public static void AddQuantityToAStockItem()
         {
-            // add quantity to stock item
-            Console.WriteLine("Add quantity to a stock item");
+            int code = ReadInteger("\nCode");
+            int quantityToAdd = ReadInteger("Quantity To Add");
+            try
+            {
+                adminUI.AddQuantityToAStockItem(code, quantityToAdd);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\n" + e.Message);
+            }
         }
         public static void DeleteAStockItem()
         {
-            // delete a stock Item
-            Console.WriteLine("Delete a Stock Item");
+            int code = ReadInteger("\nCode");
+            try
+            {
+                adminUI.DeleteAStockItem(code);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\n" + e.Message);
+            }
         }
         public static void RemoveQuantityFromAStockItem()
         {
-            // remove quantity from stock item
-            Console.WriteLine("Remove a Stock Item");
-        }
-        public static void ViewStockLevels()
-        {
-            // view stock levels
-            Console.WriteLine("View stock levels");
+            int code = ReadInteger("\nCode");
+            int quantityToRemove = ReadInteger("Quantity To Remove");
+            try
+            {
+                adminUI.RemoveQuantityFromAStockItem(code, quantityToRemove);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\n" + e.Message);
+            }
         }
         public static void ViewTransactionLog()
         {
-            // view transaction log
-            Console.WriteLine("View transaction log");
+            adminUI.ViewTransactionLog();
         }
+        public static void ViewStockLevels()
+        {
+            adminUI.ViewStockLevels();
+        }
+        
     }
 }
