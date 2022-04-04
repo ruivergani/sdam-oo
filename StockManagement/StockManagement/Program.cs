@@ -5,20 +5,18 @@ namespace StockManagement
 {
     public class Program
     {
-        private const int VIEW_TRANSACTION_LOG = 1;
-        private const int VIEW_STOCK_LEVELS = 2;
-        private const int ADD_NEW_ITEM_OF_STOCK = 3;
-        private const int ADD_QUANTITY_TO_STOCK_ITEM = 4;
-        private const int DELETE_STOCK_ITEM = 5;
-        private const int DELETE_QUANTITY_FROM_STOCK_ITEM = 6;
+        private const int ADD_NEW_ITEM_OF_STOCK = 1;
+        private const int ADD_QUANTITY_TO_STOCK_ITEM = 2;
+        private const int DELETE_STOCK_ITEM = 3;
+        private const int DELETE_QUANTITY_FROM_STOCK_ITEM = 4;
+        private const int VIEW_TRANSACTION_LOG = 5;
+        private const int VIEW_STOCK_LEVELS = 6;
         private const int EXIT = 7;
-
-       // private static readonly AdminUI admin = new AdminUI();
-
-        static void Main(string[] args)
+        private static AdminUI adminUI;
+        public static void Main(string[] args)
         {
             DisplayMenu();
-            int choice = ReadInteger("Option: > ");
+            int choice = ReadInteger("Option");
             while (choice != EXIT)
             {
                 switch (choice)
@@ -46,7 +44,7 @@ namespace StockManagement
                         break;
                 }
                 DisplayMenu();
-                choice = ReadInteger("Option: > ");
+                choice = ReadInteger("Option");
             }
 
         }
@@ -54,23 +52,31 @@ namespace StockManagement
         private static void DisplayMenu()
         {
             Console.WriteLine("\n");
-            Console.WriteLine(VIEW_TRANSACTION_LOG + " - View Transaction Log");
-            Console.WriteLine(VIEW_STOCK_LEVELS + " - View Stock Levels");
             Console.WriteLine(ADD_NEW_ITEM_OF_STOCK + " - Add a new item of stock");
             Console.WriteLine(ADD_QUANTITY_TO_STOCK_ITEM + " - Add quantity to stock item");
             Console.WriteLine(DELETE_STOCK_ITEM + " - Delete stock item");
             Console.WriteLine(DELETE_QUANTITY_FROM_STOCK_ITEM + " - Delete quantity from stock item");
+            Console.WriteLine(VIEW_TRANSACTION_LOG + " - View Transaction Log");
+            Console.WriteLine(VIEW_STOCK_LEVELS + " - View Stock Levels");
             Console.WriteLine(EXIT + " - Exit");
             Console.WriteLine("\n"); 
         }
         private static int ReadInteger(string prompt)
         {
-            Console.Write(prompt);
-            return Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                Console.Write(prompt + ": > ");
+                return Convert.ToInt32(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
         }
         private static string ReadString(string prompt)
         {
-            Console.Write(prompt);
+            // ideal should be validating the string for only letters (not numbers)
+            Console.Write(prompt + ": > ");
             return Convert.ToString(Console.ReadLine());
         }
         public static void DisplayResults(List<string> results)
@@ -79,8 +85,20 @@ namespace StockManagement
         }
         public static void AddANewItemOfStock()
         {
-            // add new item of stock
-            Console.WriteLine("Add new item of stock");
+            StockManager stockMgr = new StockManager();
+            TransactionManager transactionMgr = new TransactionManager();
+            adminUI = new AdminUI(stockMgr, transactionMgr);
+            int code = ReadInteger("\nCode");
+            string name = ReadString("Name");
+            int quantityStock = ReadInteger("Quantity in Stock");
+            try
+            {
+                adminUI.AddANewItemOfStock(code, name, quantityStock);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\n" + e.Message);
+            }
         }
         public static void AddQuantityToAStockItem()
         {
