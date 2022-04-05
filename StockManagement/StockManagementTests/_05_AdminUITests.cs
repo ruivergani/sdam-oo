@@ -244,9 +244,9 @@ namespace StockManagementTests
             List<string> expectedResults = new List<string>(1);
             expectedResults.Add("\nStock Levels");
             expectedResults.Add("============");
-            expectedResults.Add("\tItem code\tItem name           \tQuantity in stock");
-            expectedResults.Add("\t1\t\tPen\t\t2");
-            expectedResults.Add("\t2\t\tPencil\t\t5");
+            expectedResults.Add("Item code\tItem name\tQuantity in stock");
+            expectedResults.Add("1\t\tPen\t\t2");
+            expectedResults.Add("2\t\tPencil\t\t5");
 
             CollectionAssert.AreEqual(expectedResults, ui.ViewStockLevels());
         }

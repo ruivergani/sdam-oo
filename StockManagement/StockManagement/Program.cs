@@ -98,8 +98,7 @@ namespace StockManagement
             int quantityStock = ReadInteger("Quantity in Stock");
             try
             {
-                adminUI.AddANewItemOfStock(code, name, quantityStock);
-                Console.WriteLine("\nItem added.");
+                DisplayResults(adminUI.AddANewItemOfStock(code, name, quantityStock));
             }
             catch (Exception e)
             {
@@ -112,8 +111,7 @@ namespace StockManagement
             int quantityToAdd = ReadInteger("Quantity To Add");
             try
             {
-                adminUI.AddQuantityToAStockItem(code, quantityToAdd);
-                Console.WriteLine("\nQuantity added.");
+                DisplayResults(adminUI.AddQuantityToAStockItem(code, quantityToAdd));
             }
             catch (Exception e)
             {
@@ -125,7 +123,7 @@ namespace StockManagement
             int code = ReadInteger("\nCode");
             try
             {
-                adminUI.DeleteAStockItem(code);
+                DisplayResults(adminUI.DeleteAStockItem(code));
             }
             catch (Exception e)
             {
@@ -138,7 +136,7 @@ namespace StockManagement
             int quantityToRemove = ReadInteger("Quantity To Remove");
             try
             {
-                adminUI.RemoveQuantityFromAStockItem(code, quantityToRemove);
+                DisplayResults(adminUI.RemoveQuantityFromAStockItem(code, quantityToRemove));
             }
             catch (Exception e)
             {

@@ -30,10 +30,14 @@ namespace StockManagement
         }
         public StockItem FindStockItem(int code)
         {
-            StockItem item = null; // Return null if does not exist
+            StockItem item;
             if (StockItems.ContainsKey(code)) // Reading through the Dictionary (automated code)
             {
                 return StockItems[code]; // return the value based on the key = code
+            }
+            else
+            {
+                item = null;
             }
             return item; // return product as null if not found
         }

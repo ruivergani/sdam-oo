@@ -79,7 +79,6 @@ namespace StockManagement
                 transactionMgr.RecordItemDeleted(new StockItem(item.Code, item.Name, item.QuantityInStock));
                 expectedResults.Add("Item "+code+" deleted.");
             }
-            
             return expectedResults;
         }
         // Based on StockManager Class
@@ -90,10 +89,10 @@ namespace StockManagement
             {
                 expectedResults.Add("\nStock Levels");
                 expectedResults.Add("============");
-                expectedResults.Add("\tItem code\tItem name           \tQuantity in stock");
+                expectedResults.Add("Item code\tItem name\tQuantity in stock");
                 foreach (StockItem item in stockMgr.StockItems.Values)
                 {
-                    expectedResults.Add("\t"+item.Code+"\t\t"+item.Name+"\t\t"+item.QuantityInStock);
+                    expectedResults.Add(item.Code+"\t\t"+item.Name+"\t\t"+item.QuantityInStock);
                 }
             }
             else
