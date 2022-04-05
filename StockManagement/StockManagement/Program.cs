@@ -13,12 +13,14 @@ namespace StockManagement
         private const int VIEW_TRANSACTION_LOG = 6;
         private const int EXIT = 7;
 
-        private static readonly StockManager stockMgr = new StockManager();
-        private static readonly TransactionManager transactionMgr = new TransactionManager();
-        static readonly AdminUI adminUI = new AdminUI(stockMgr, transactionMgr);
-
+        private static AdminUI adminUI;
         public static void Main(string[] args)
         {
+            // Set the instance of objects
+            StockManager stockManager = new StockManager();
+            TransactionManager transactionManager = new TransactionManager();
+            adminUI = new AdminUI(stockManager, transactionManager);
+
             DisplayMenu();
             int choice = ReadInteger("Option");
             while (choice != EXIT)
@@ -85,7 +87,9 @@ namespace StockManagement
         }
         public static void DisplayResults(List<string> results)
         {
-           
+            // Part 2: use string.Join and pass the list as an argument.
+            string result = String.Join("\n", results);
+            Console.WriteLine($"{result}");
         }
         public static void AddANewItemOfStock()
         {
@@ -95,6 +99,7 @@ namespace StockManagement
             try
             {
                 adminUI.AddANewItemOfStock(code, name, quantityStock);
+                Console.WriteLine("\nItem added.");
             }
             catch (Exception e)
             {
@@ -108,6 +113,7 @@ namespace StockManagement
             try
             {
                 adminUI.AddQuantityToAStockItem(code, quantityToAdd);
+                Console.WriteLine("\nQuantity added.");
             }
             catch (Exception e)
             {
@@ -141,11 +147,11 @@ namespace StockManagement
         }
         public static void ViewTransactionLog()
         {
-            adminUI.ViewTransactionLog();
+            DisplayResults(adminUI.ViewTransactionLog());
         }
         public static void ViewStockLevels()
         {
-            adminUI.ViewStockLevels();
+            DisplayResults(adminUI.ViewStockLevels());
         }
         
     }

@@ -47,7 +47,6 @@ namespace StockManagement
                 transactionMgr.RecordQuantityAdded(new StockItem(item.Code, item.Name, item.QuantityInStock), quantityToAdd); // call from TransactionManager
                 expectedResults.Add("Quantity added to item: " + code + ". New quantity in stock: " + item.QuantityInStock);
             }
-            
             return expectedResults;
         }
         public List<string> RemoveQuantityFromAStockItem(int code, int quantityToRemove)
@@ -86,7 +85,7 @@ namespace StockManagement
         // Based on StockManager Class
         public List<string> ViewStockLevels()
         {
-            List<string> expectedResults = new List<string>(stockMgr.StockItems.Count);
+            List<string> expectedResults = new List<string>();
             if (stockMgr.GetAllStockItems().Count > 0)
             {
                 expectedResults.Add("\nStock Levels");
@@ -94,7 +93,7 @@ namespace StockManagement
                 expectedResults.Add("\tItem code\tItem name           \tQuantity in stock");
                 foreach (StockItem item in stockMgr.StockItems.Values)
                 {
-                    expectedResults.Add("\t"+item.Code+"\t"+item.Name+"\t"+item.QuantityInStock);
+                    expectedResults.Add("\t"+item.Code+"\t\t"+item.Name+"\t\t"+item.QuantityInStock);
                 }
             }
             else
@@ -107,7 +106,7 @@ namespace StockManagement
         }
         public List<string> ViewTransactionLog()
         {
-            List<string> expectedResults = new List<string>(transactionMgr.Transactions.Count);
+            List<string> expectedResults = new List<string>();
             if (transactionMgr.GetAllTransactions().Count > 0)
             {
                 expectedResults.Add("\nTransaction log");
