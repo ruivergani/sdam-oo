@@ -54,7 +54,7 @@ namespace StockManagement
             }
 
         }
-        // Functions
+        // Functions to be executed in the main
         private static void DisplayMenu()
         {
             Console.WriteLine("\n");
