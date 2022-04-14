@@ -9,3 +9,4 @@ This folder contains a list of exercises to practice all the concepts in C#
 - Dictionaries
 - Methods
 - Parameters
+- StockManagement Software CRUD System
